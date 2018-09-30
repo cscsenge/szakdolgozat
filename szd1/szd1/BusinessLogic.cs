@@ -66,7 +66,7 @@ namespace szd1 {
 			if (VM.StickyArray[(int)stickyGamer.X + dx, (int)stickyGamer.Y + dy] == "e" || VM.StickyArray[(int)stickyGamer.X + dx, (int)stickyGamer.Y + dy] == "f") {
 				if (stuckedUnits.Count > 0) {
 					foreach (Point stuckedUnit in stuckedUnits) {
-						if (VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy] == "e" || VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy] == "g") {
+						if (VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy] == "e" || VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy] == "g" || VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy] == "b") {
 							return true;
 						}
 					}
@@ -86,6 +86,10 @@ namespace szd1 {
 			List<Point> tempStuckedUnits = new List<Point>();
 			foreach (Point stuckedUnit in stuckedUnits) {
 				if (VM.StickyArray[(int)stuckedUnit.X, (int)stuckedUnit.Y] != "g") VM.StickyArray[(int)stuckedUnit.X, (int)stuckedUnit.Y] = "e";
+				if (VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy] == "b") {
+					VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy] = "e";
+					break;
+				}
 				Point temp = new Point(stuckedUnit.X, stuckedUnit.Y);
 				temp.X += dx;
 				temp.Y += dy;

@@ -1,0 +1,20 @@
+07. 28.
+számok betöltése - még nem adatbázisból
+todo: new Grid() helyett minden betöltése az elején, utána csak a visibiliy-k változnak
+fillomino - nem textbox, hanem képek?
+sticky blocks - drawing, egyelőre txt-ből való beolvasás
+
+KÉRDÉSEK:
+mennyire legyen clean code - végén refactor
+
+09. 24.
+nincs adatbázis -> több txt generálása, beolvasása
+sticky blocks megjelenítése, lehessen mozogni
+fillomino: nem textboxok, hanem ha kijelöli és úgy nyom egy gombot, akkor az a szám lesz a tartalma
+
+09. 30.
+MVVM
+fillomino számbeírás finomhangolása -> ha másik elemen van a fókusz, akkor már ne lehessen beleírni
+fillomino egységek
+sticky blocks mezőtípusok -> enum
+genetikus

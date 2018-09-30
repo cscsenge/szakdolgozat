@@ -27501,11 +27501,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Csenge\\Documents\\OE-NIK\\Szakdolgozat\\Projektek\\szd1\\szd1\\szd1.csproj",
+      "projectUniqueName": "C:\\Users\\csend\\Documents\\szakdolgozat\\szd1\\szd1\\szd1.csproj",
       "projectName": "szd1",
-      "projectPath": "E:\\Csenge\\Documents\\OE-NIK\\Szakdolgozat\\Projektek\\szd1\\szd1\\szd1.csproj",
+      "projectPath": "C:\\Users\\csend\\Documents\\szakdolgozat\\szd1\\szd1\\szd1.csproj",
       "packagesPath": "C:\\Users\\csend\\.nuget\\packages\\",
-      "outputPath": "E:\\Csenge\\Documents\\OE-NIK\\Szakdolgozat\\Projektek\\szd1\\szd1\\obj\\",
+      "outputPath": "C:\\Users\\csend\\Documents\\szakdolgozat\\szd1\\szd1\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

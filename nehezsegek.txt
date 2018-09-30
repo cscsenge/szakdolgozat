@@ -1,0 +1,5 @@
+Nehézségek
+
+1. MVVM megvalósítása: INotifyPropertyChanged probléma
+2. Sticky Blocks megjelenítése (itt nincs drawing, mint WPF-ben)
+3. TXT jelek
