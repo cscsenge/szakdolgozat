@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using szd1.Classes;
 
 namespace szd1 {
 	class ViewModel: Bindable {
@@ -14,8 +15,8 @@ namespace szd1 {
 		public bool IsInFillomino { get { return isInFillomino; } set { isInFillomino = value; OPC(); } }
 		bool isInSticky = false;
 		public bool IsInSticky { get { return isInSticky; } set { isInSticky = value; OPC(); } }
-		string[,] stickyArray;
-		public string[,] StickyArray { get { return stickyArray; } set { stickyArray = value; OPC(); } }
+		Unit[,] stickyArray;
+		public Unit[,] StickyArray { get { return stickyArray; } set { stickyArray = value; OPC(); } }
 		public BusinessLogic BL;
 
 		public ViewModel() {

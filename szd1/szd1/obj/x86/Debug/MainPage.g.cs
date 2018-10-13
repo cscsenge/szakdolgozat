@@ -194,7 +194,7 @@ namespace szd1
                     XamlBindingSetters.Set_Windows_UI_Xaml_UIElement_Visibility(this.obj7, (global::Windows.UI.Xaml.Visibility)this.LookupConverter("BoolToVisibility").Convert(obj, typeof(global::Windows.UI.Xaml.Visibility), null, null));
                 }
             }
-            private void Update_viewModel_StickyArray(global::System.String[,] obj, int phase)
+            private void Update_viewModel_StickyArray(global::szd1.Classes.Unit[,] obj, int phase)
             {
                 if ((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
                 {

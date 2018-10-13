@@ -95,6 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Unit.cs" />
+    <Compile Include="Classes\UnitTypes.cs" />
     <Compile Include="Consts.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="BusinessLogic.cs" />
