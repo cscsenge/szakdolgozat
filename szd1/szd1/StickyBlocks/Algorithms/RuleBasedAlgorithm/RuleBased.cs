@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using szd1.Classes;
+using szd1.StickyBlocks.Classes;
 using Windows.Foundation;
 
-namespace szd1.RuleBasedAlgorithm {
+namespace szd1.StickyBlocks.Algorithms.RuleBasedAlgorithm {
 	class RuleBased {
 
 		private Unit[,] table;

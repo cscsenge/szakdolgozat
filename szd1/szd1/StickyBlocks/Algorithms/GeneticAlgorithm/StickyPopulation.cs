@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using szd1.Classes;
+using szd1.StickyBlocks.Classes;
 
-namespace szd1.GeneticAlgorithm {
+namespace szd1.StickyBlocks.Algorithms.GeneticAlgorithm {
 	class StickyPopulation {
 		public StickyChromosome fittest = new StickyChromosome();
 		public List<StickyChromosome> chromosomes;

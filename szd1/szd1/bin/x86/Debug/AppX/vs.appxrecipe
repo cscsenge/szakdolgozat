@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\csend\Documents\szakdolgozat\szd1\szd1\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-14T09:52:07.396</Modified>
+      <Modified>2018-10-14T14:04:15.789</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\csend\Documents\szakdolgozat\szd1\szd1\bin\x86\Debug\szd1.exe">
       <PackagePath>entrypoint\szd1.exe</PackagePath>
-      <Modified>2018-10-14T09:52:06.887</Modified>
+      <Modified>2018-10-14T14:04:15.426</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -535,15 +535,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csend\Documents\szakdolgozat\szd1\szd1\bin\x86\Debug\szd1.xr.xml">
       <PackagePath>szd1.xr.xml</PackagePath>
-      <Modified>2018-09-29T19:45:20.056</Modified>
+      <Modified>2018-10-14T14:04:15.232</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csend\Documents\szakdolgozat\szd1\szd1\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-10-14T09:52:06.639</Modified>
+      <Modified>2018-10-14T14:04:15.239</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csend\Documents\szakdolgozat\szd1\szd1\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2018-10-14T09:52:06.640</Modified>
+      <Modified>2018-10-14T14:04:15.240</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -552,11 +552,11 @@
     <AppxPackagedFile Include="C:\Users\csend\Documents\szakdolgozat\szd1\szd1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-10-14T09:16:20.768</Modified>
+      <Modified>2018-10-14T14:02:30.960</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csend\Documents\szakdolgozat\szd1\szd1\bin\x86\Debug\Core\szd1.exe">
       <PackagePath>szd1.exe</PackagePath>
-      <Modified>2018-10-14T09:52:07.386</Modified>
+      <Modified>2018-10-14T14:04:15.784</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

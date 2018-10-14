@@ -192,7 +192,7 @@ namespace szd1.szd1_XamlTypeInfo
             _typeNameTable = new string[6];
             _typeNameTable[0] = "szd1.Converters.BoolToVisibilityConverter";
             _typeNameTable[1] = "Object";
-            _typeNameTable[2] = "szd1.Converters.StickyMapToShapeConverter";
+            _typeNameTable[2] = "szd1.Converters.MapToGeometryConverter";
             _typeNameTable[3] = "szd1.MainPage";
             _typeNameTable[4] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[5] = "Windows.UI.Xaml.Controls.UserControl";
@@ -239,7 +239,7 @@ namespace szd1.szd1_XamlTypeInfo
         }
 
         private object Activate_0_BoolToVisibilityConverter() { return new global::szd1.Converters.BoolToVisibilityConverter(); }
-        private object Activate_2_StickyMapToShapeConverter() { return new global::szd1.Converters.StickyMapToShapeConverter(); }
+        private object Activate_2_MapToGeometryConverter() { return new global::szd1.Converters.StickyMapToShapeConverter(); }
         private object Activate_3_MainPage() { return new global::szd1.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
@@ -263,9 +263,9 @@ namespace szd1.szd1_XamlTypeInfo
                 xamlType = new global::szd1.szd1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  szd1.Converters.StickyMapToShapeConverter
+            case 2:   //  szd1.Converters.MapToGeometryConverter
                 userType = new global::szd1.szd1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_2_StickyMapToShapeConverter;
+                userType.Activator = Activate_2_MapToGeometryConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

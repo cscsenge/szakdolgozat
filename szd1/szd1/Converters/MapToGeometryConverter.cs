@@ -10,10 +10,10 @@ using Windows.UI.Xaml.Media;
 using Windows.UI;
 using Windows.UI.Xaml.Controls;
 using System.Collections.ObjectModel;
-using szd1.Classes;
+using szd1.StickyBlocks.Classes;
 
 namespace szd1.Converters {
-	class MapToGeometryConverter: IValueConverter {
+	class StickyMapToShapeConverter: IValueConverter {
 		public object Convert(object value, Type targetType, object parameter, string language) {
 			Unit[,] table = (Unit[,])value;
 			ObservableCollection<Shape> shapes = new ObservableCollection<Shape>();

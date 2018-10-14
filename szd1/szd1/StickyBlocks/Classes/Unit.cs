@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml.Media;
 
-namespace szd1.Classes {
+namespace szd1.StickyBlocks.Classes {
 
 	public class Unit {
 

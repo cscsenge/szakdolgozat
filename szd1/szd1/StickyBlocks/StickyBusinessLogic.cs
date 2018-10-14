@@ -4,20 +4,19 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using szd1.Classes;
-using szd1.GeneticAlgorithm;
-using szd1.RuleBasedAlgorithm;
+using szd1.StickyBlocks.Classes;
 using Windows.Foundation;
 using Windows.UI.Xaml.Input;
+using szd1.StickyBlocks.Algorithms;
 
-namespace szd1 {
-	class BusinessLogic {
+namespace szd1.StickyBlocks {
+	class StickyBusinessLogic {
 		private int stickySizeWidth;
 		private int stickySizeHeight;
 		private Point stickyGamer;
 		private ViewModel VM;
 		private static List<Point> stuckedUnits;
-		public BusinessLogic(ViewModel VM) {
+		public StickyBusinessLogic(ViewModel VM) {
 			this.VM = VM;
 			stickyGamer = new Point();
 			stuckedUnits = new List<Point>();
@@ -40,15 +39,10 @@ namespace szd1 {
 			}
 			return stickyArray;
 		}
-
-		List<StickyPopulation> generations = new List<StickyPopulation>();
-		StickyChromosome parent1 = new StickyChromosome();
-		StickyChromosome parent2 = new StickyChromosome();
-		StickyChromosome kid = new StickyChromosome();
 		private static Random r = new Random();
 
 		public void Start() {
-			RuleBased rb = new RuleBased(VM.StickyArray);
+			Algorithms.RuleBasedAlgorithm.RuleBased rb = new Algorithms.RuleBasedAlgorithm.RuleBased(VM.StickyArray);
 		}
 
 		/*public void Start() {

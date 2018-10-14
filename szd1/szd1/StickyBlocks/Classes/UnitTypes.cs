@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Media;
 
-namespace szd1.Classes {
+namespace szd1.StickyBlocks.Classes {
 
 	public enum UnitType { Wall, Empty, Player, Filled, Bordered }
 
