@@ -15,6 +15,15 @@ using szd1.StickyBlocks;
 
 namespace szd1.Converters {
 	class StickyMapToShapeConverter: IValueConverter {
+
+		List<SolidColorBrush> brushes = new List<SolidColorBrush>();
+
+		public StickyMapToShapeConverter() {
+			brushes.Add(new SolidColorBrush(Color.FromArgb(255, 255, 128, 0)));
+			brushes.Add(new SolidColorBrush(Color.FromArgb(255, 0, 0, 255)));
+			brushes.Add(new SolidColorBrush(Color.FromArgb(255, 255, 0, 255)));
+		}
+
 		public object Convert(object value, Type targetType, object parameter, string language) {
 			Unit[,] table = (Unit[,])value;
 			ObservableCollection<Shape> shapes = new ObservableCollection<Shape>();

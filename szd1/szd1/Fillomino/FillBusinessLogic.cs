@@ -37,6 +37,7 @@ namespace szd1.Fillomino {
 		public void SetFillominoGrid(Grid gameGrid, string fileName) {
 			VM.FillBL.LoadFillomino(fileName);
 			gameGrid.RowDefinitions.Clear();
+			gameGrid.ColumnDefinitions.Clear();
 			gameGrid.Children.Clear();
 			for (int i = 0; i < fillSize; i++) {
 				ColumnDefinition cd = new ColumnDefinition();
@@ -55,9 +56,9 @@ namespace szd1.Fillomino {
 						Background = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255)),
 						Width = gameGrid.Width / fillSize,
 						HorizontalAlignment = HorizontalAlignment.Stretch,
-						VerticalAlignment = VerticalAlignment.Stretch,
-						FontSize = 50
+						VerticalAlignment = VerticalAlignment.Stretch
 					};
+					button.FontSize = button.Width / 2;
 					if (fillArray[i, j] > 0) {
 						button.Content = fillArray[i, j].ToString();
 						button.IsEnabled = false;

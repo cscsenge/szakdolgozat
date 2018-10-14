@@ -15,13 +15,15 @@
         <Button x:Name="fillominoButton" Content="Fillomino" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Center" Click="FillominoClick" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}"/>
         <Button x:Name="stickyButton" Content="Sticky Blocks" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Center" Click="StickyBlocksClick" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}"/>
         <Grid x:Name="gameGrid" BorderBrush="Black" BorderThickness="1" Visibility="{x:Bind VM.IsInFillomino, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <ScrollViewer IsVerticalRailEnabled="True" IsVerticalScrollChainingEnabled="true" IsEnabled="False">
         <ItemsControl ItemsSource="{x:Bind VM.StickyArray, Mode=OneWay, Converter={StaticResource MapToGeometry}}" Visibility="{x:Bind VM.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}">
             <ItemsControl.ItemsPanel >
                 <ItemsPanelTemplate>
-                    <Canvas Width="800" Height="480" Background="Beige" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                    <Canvas Width="800" Height="480" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
+        </ScrollViewer>
         <Button Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" Click="BackButtonClick"/>
         <ComboBox x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="0,100,0,0" VerticalAlignment="Top" Width="200" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" SelectionChanged="LevelChooserSelectedChanged" DropDownClosed="LevelChooserDropDownClosed"/>
         <ComboBox x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="0,150,0,0" VerticalAlignment="Top" Width="200" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" SelectionChanged="AlgorithmChooserSelectedChanged" DropDownClosed="LevelChooserDropDownClosed"/>

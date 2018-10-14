@@ -19,8 +19,11 @@ fillomino egységek
 sticky blocks mezőtípusok -> enum
 genetikus
 
-10. 13.
+10. 13. - 15.
+genetikus
 szabálytábla, mint első tanuló algoritmus -> sticky
 osztályok refactor
-combobox txt-hez
+comboboxok
 algoritmus kiválasztása
+scrollviewer
+véletlenszerűen ad szineket

@@ -102,7 +102,7 @@
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Fillomino\FillBusinessLogic.cs" />
     <Compile Include="StickyBlocks\StickyBusinessLogic.cs" />
-    <Compile Include="Converters\MapToGeometryConverter.cs" />
+    <Compile Include="Converters\StickyMapToShapeConverter.cs" />
     <Compile Include="StickyBlocks\Algorithms\GeneticAlgorithm\StickyChromosome.cs" />
     <Compile Include="StickyBlocks\Algorithms\GeneticAlgorithm\StickyPopulation.cs" />
     <Compile Include="MainPage.xaml.cs">

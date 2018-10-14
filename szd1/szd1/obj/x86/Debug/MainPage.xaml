@@ -15,17 +15,19 @@
         <Button x:ConnectionId='3' x:Name="fillominoButton" Content="Fillomino" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Center"                                                                                                                   />
         <Button x:ConnectionId='4' x:Name="stickyButton" Content="Sticky Blocks" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Center"                                                                                                                      />
         <Grid x:ConnectionId='5' x:Name="gameGrid" BorderBrush="Black" BorderThickness="1"                                                                                                  Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <ItemsControl x:ConnectionId='6'                                                                                                                                                                                           >
+        <ScrollViewer IsVerticalRailEnabled="True" IsVerticalScrollChainingEnabled="true" IsEnabled="False">
+        <ItemsControl x:ConnectionId='10'                                                                                                                                                                                           >
             <ItemsControl.ItemsPanel >
                 <ItemsPanelTemplate>
-                    <Canvas Width="800" Height="480" Background="Beige" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                    <Canvas Width="800" Height="480" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <Button x:ConnectionId='7' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                           />
-        <ComboBox x:ConnectionId='8' x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="0,100,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                              />
-        <ComboBox x:ConnectionId='9' x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="0,150,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                                  />
-        <Button x:ConnectionId='10' x:Name="startButton" Content="Start" HorizontalAlignment="Left" Width="100" Height="30" Margin="0,200,0,0" VerticalAlignment="Top"                                                                                                                                  />
+        </ScrollViewer>
+        <Button x:ConnectionId='6' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                           />
+        <ComboBox x:ConnectionId='7' x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="0,100,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                              />
+        <ComboBox x:ConnectionId='8' x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="0,150,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                                  />
+        <Button x:ConnectionId='9' x:Name="startButton" Content="Start" HorizontalAlignment="Left" Width="100" Height="30" Margin="0,200,0,0" VerticalAlignment="Top"                                                                                                                                  />
     </Grid>
 </Page>
 
