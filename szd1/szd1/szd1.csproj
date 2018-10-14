@@ -101,10 +101,13 @@
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="Converters\MapToGeometryConverter.cs" />
+    <Compile Include="GeneticAlgorithm\StickyChromosome.cs" />
+    <Compile Include="GeneticAlgorithm\StickyPopulation.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuleBasedAlgorithm\RuleBased.cs" />
     <Compile Include="ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +141,7 @@
       <Version>6.1.5</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

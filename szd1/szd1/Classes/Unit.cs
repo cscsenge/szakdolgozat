@@ -22,6 +22,12 @@ namespace szd1.Classes {
 			//SetUnitByType(type, color);
 		}
 
+		public Unit() {
+
+		}
+
+
+
 		/*private void SetUnitByType(UnitType type, SolidColorBrush color) {
 			if (color == null) {
 				if (type == UnitType.Empty)	Border = Color = DefaultColor;

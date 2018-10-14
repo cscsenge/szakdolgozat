@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using szd1.Classes;
+using szd1.GeneticAlgorithm;
+using szd1.RuleBasedAlgorithm;
 using Windows.Foundation;
 using Windows.UI.Xaml.Input;
 
@@ -38,6 +40,39 @@ namespace szd1 {
 			}
 			return stickyArray;
 		}
+
+		List<StickyPopulation> generations = new List<StickyPopulation>();
+		StickyChromosome parent1 = new StickyChromosome();
+		StickyChromosome parent2 = new StickyChromosome();
+		StickyChromosome kid = new StickyChromosome();
+		private static Random r = new Random();
+
+		public void Start() {
+			RuleBased rb = new RuleBased(VM.StickyArray);
+		}
+
+		/*public void Start() {
+			StickyPopulation firstPopulation = new StickyPopulation(Consts.STICKY_PCOUNT, VM.StickyArray);
+			for (int i = 0; i < Consts.STICKY_GCOUNT; i++) {
+				generations.Add(null);
+			}
+			generations[0] = firstPopulation;
+
+			for (int i = 0; i < Consts.STICKY_GCOUNT - 1; i++) {
+				generations[i + 1] = new StickyPopulation();
+				for (int j = 0; j < Consts.STICKY_PCOUNT; j++) {
+					parent1 = generations[i].chromosomes[r.Next(generations[i].chromosomes.Count)];
+					parent2 = generations[i].chromosomes[r.Next(generations[i].chromosomes.Count)];
+
+					kid = Crossover();
+				}
+			}
+		}
+
+		public StickyChromosome Crossover() {
+			StickyChromosome kid = new StickyChromosome();
+
+		}*/
 
 		public Unit[,] PlayerMove(Windows.UI.Core.KeyEventArgs e) {
 			switch (e.VirtualKey) {

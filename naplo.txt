@@ -1,4 +1,4 @@
-07. 28.
+﻿07. 28.
 számok betöltése - még nem adatbázisból
 todo: new Grid() helyett minden betöltése az elején, utána csak a visibiliy-k változnak
 fillomino - nem textbox, hanem képek?
@@ -18,3 +18,6 @@ fillomino számbeírás finomhangolása -> ha másik elemen van a fókusz, akkor
 fillomino egységek
 sticky blocks mezőtípusok -> enum
 genetikus
+
+10. 13.
+szabálytábla, mint első tanuló algoritmus -> sticky

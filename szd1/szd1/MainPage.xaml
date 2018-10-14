@@ -23,5 +23,6 @@
         </ItemsControl>
         <Button Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{x:Bind viewModel.IsInFillomino, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="FillominoBackButtonClick"/>
         <Button Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{x:Bind viewModel.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="StickyBackButtonClick"/>
+        <Button Content="Start" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Visibility="{x:Bind viewModel.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="StickyStartButtonClick"/>
     </Grid>
 </Page>

@@ -23,6 +23,7 @@
         </ItemsControl>
         <Button x:ConnectionId='7' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                                         />
         <Button x:ConnectionId='8' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                                   />
+        <Button x:ConnectionId='9' Content="Start" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top"                                                                                                                                    />
     </Grid>
 </Page>
 

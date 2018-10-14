@@ -141,5 +141,9 @@ namespace szd1
 				viewModel.StickyUnitMove(args);
 			}
 		}
+
+		private void StickyStartButtonClick(object sender, RoutedEventArgs e) {
+			viewModel.BL.Start();
+		}
 	}
 }
