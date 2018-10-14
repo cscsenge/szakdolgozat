@@ -8,6 +8,7 @@ using szd1.StickyBlocks.Classes;
 using Windows.Foundation;
 using Windows.UI.Xaml.Input;
 using szd1.StickyBlocks.Algorithms;
+using Windows.UI.Xaml.Controls;
 
 namespace szd1.StickyBlocks {
 
@@ -39,6 +40,20 @@ namespace szd1.StickyBlocks {
 				}
 			}
 			VM.StickyArray = stickyArray;
+		}
+
+		public void SetComboBoxes(ComboBox levelChooser, ComboBox algorithmChooser) {
+			levelChooser.Items.Clear();
+			algorithmChooser.Items.Clear();
+			DirectoryInfo dir = new DirectoryInfo(@"Levels\StickyBlocks\");
+			foreach (FileInfo file in dir.GetFiles()) {
+				if (file.Extension.Contains("txt")) {
+					levelChooser.Items.Add(file.Name);
+				}
+			}
+			foreach (string algorithm in Consts.STICKY_ALGORITHMS) {
+				algorithmChooser.Items.Add(algorithm);
+			}
 		}
 
 		public void Start() {

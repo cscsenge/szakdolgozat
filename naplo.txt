@@ -21,3 +21,6 @@ genetikus
 
 10. 13.
 szabálytábla, mint első tanuló algoritmus -> sticky
+osztályok refactor
+combobox txt-hez
+algoritmus kiválasztása

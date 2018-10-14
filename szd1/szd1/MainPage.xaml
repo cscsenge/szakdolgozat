@@ -9,6 +9,7 @@
     <Page.Resources>
         <local:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
         <local:StickyMapToShapeConverter x:Key="MapToGeometry"/>
+        <local:BoolToInverseVisibilityConverter x:Key="BoolToInverseVisibility"/>
     </Page.Resources>
     <Grid x:Name="mainGrid" BorderBrush="Black" BorderThickness="1">
         <Button x:Name="fillominoButton" Content="Fillomino" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Center" Click="FillominoClick" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}"/>
@@ -21,8 +22,9 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <Button Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{x:Bind VM.IsInFillomino, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="FillominoBackButtonClick"/>
-        <Button Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{x:Bind VM.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="StickyBackButtonClick"/>
-        <Button Content="Start" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Visibility="{x:Bind VM.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="StickyStartButtonClick"/>
+        <Button Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" Click="BackButtonClick"/>
+        <ComboBox x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="0,100,0,0" VerticalAlignment="Top" Width="200" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" SelectionChanged="LevelChooserSelectedChanged" DropDownClosed="LevelChooserDropDownClosed"/>
+        <ComboBox x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="0,150,0,0" VerticalAlignment="Top" Width="200" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" SelectionChanged="AlgorithmChooserSelectedChanged" DropDownClosed="LevelChooserDropDownClosed"/>
+        <Button x:Name="startButton" Content="Start" HorizontalAlignment="Left" Width="100" Height="30" Margin="0,200,0,0" VerticalAlignment="Top" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" Click="StickyStartButtonClick"/>
     </Grid>
 </Page>

@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BoolToInverseVisibilityConverter.cs" />
     <Compile Include="StickyBlocks\Classes\Unit.cs" />
     <Compile Include="StickyBlocks\Classes\UnitTypes.cs" />
     <Compile Include="Consts.cs" />

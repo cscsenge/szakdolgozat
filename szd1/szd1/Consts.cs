@@ -11,5 +11,7 @@ namespace szd1 {
 		public const int STICKY_GCOUNT = 5000;
 		public const int STICKY_PCOUNT = 1000;
 		public const int STICKY_RULEBTABLE_SIZE = 4;
+		public static readonly string[] STICKY_ALGORITHMS = { "Rule-Based", "Genetic", "Other" };
+		public static readonly string[] FILLOMINO_ALGORITHMS = { "Rule-Based", "Genetic" };
 	}
 }

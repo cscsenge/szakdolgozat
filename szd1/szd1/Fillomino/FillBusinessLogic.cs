@@ -36,6 +36,8 @@ namespace szd1.Fillomino {
 
 		public void SetFillominoGrid(Grid gameGrid, string fileName) {
 			VM.FillBL.LoadFillomino(fileName);
+			gameGrid.RowDefinitions.Clear();
+			gameGrid.Children.Clear();
 			for (int i = 0; i < fillSize; i++) {
 				ColumnDefinition cd = new ColumnDefinition();
 				RowDefinition rd = new RowDefinition();
@@ -67,6 +69,20 @@ namespace szd1.Fillomino {
 					Grid.SetColumn(border, j);
 					Grid.SetRow(border, i);
 				}
+			}
+		}
+
+		public void SetComboBoxes(ComboBox levelChooser, ComboBox algorithmChooser) {
+			levelChooser.Items.Clear();
+			algorithmChooser.Items.Clear();
+			DirectoryInfo dir = new DirectoryInfo(@"Levels\Fillomino\");
+			foreach (FileInfo file in dir.GetFiles()) {
+				if (file.Extension.Contains("txt")) {
+					levelChooser.Items.Add(file.Name);
+				}
+			}
+			foreach (string algorithm in Consts.FILLOMINO_ALGORITHMS) {
+				algorithmChooser.Items.Add(algorithm);
 			}
 		}
 

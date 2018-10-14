@@ -9,6 +9,7 @@
     <Page.Resources>
         <local:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
         <local:StickyMapToShapeConverter x:Key="MapToGeometry"/>
+        <local:BoolToInverseVisibilityConverter x:Key="BoolToInverseVisibility"/>
     </Page.Resources>
     <Grid x:ConnectionId='2' x:Name="mainGrid" BorderBrush="Black" BorderThickness="1">
         <Button x:ConnectionId='3' x:Name="fillominoButton" Content="Fillomino" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Center"                                                                                                                   />
@@ -21,9 +22,10 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <Button x:ConnectionId='7' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                                  />
-        <Button x:ConnectionId='8' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                            />
-        <Button x:ConnectionId='9' Content="Start" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top"                                                                                                                             />
+        <Button x:ConnectionId='7' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                           />
+        <ComboBox x:ConnectionId='8' x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="0,100,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                              />
+        <ComboBox x:ConnectionId='9' x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="0,150,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                                  />
+        <Button x:ConnectionId='10' x:Name="startButton" Content="Start" HorizontalAlignment="Left" Width="100" Height="30" Margin="0,200,0,0" VerticalAlignment="Top"                                                                                                                                  />
     </Grid>
 </Page>
 

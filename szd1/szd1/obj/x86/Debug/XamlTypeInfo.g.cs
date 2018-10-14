@@ -189,21 +189,23 @@ namespace szd1.szd1_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[6];
+            _typeNameTable = new string[7];
             _typeNameTable[0] = "szd1.Converters.BoolToVisibilityConverter";
             _typeNameTable[1] = "Object";
             _typeNameTable[2] = "szd1.Converters.StickyMapToShapeConverter";
-            _typeNameTable[3] = "szd1.MainPage";
-            _typeNameTable[4] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[5] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[3] = "szd1.Converters.BoolToInverseVisibilityConverter";
+            _typeNameTable[4] = "szd1.MainPage";
+            _typeNameTable[5] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[6] = "Windows.UI.Xaml.Controls.UserControl";
 
-            _typeTable = new global::System.Type[6];
+            _typeTable = new global::System.Type[7];
             _typeTable[0] = typeof(global::szd1.Converters.BoolToVisibilityConverter);
             _typeTable[1] = typeof(global::System.Object);
             _typeTable[2] = typeof(global::szd1.Converters.StickyMapToShapeConverter);
-            _typeTable[3] = typeof(global::szd1.MainPage);
-            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[3] = typeof(global::szd1.Converters.BoolToInverseVisibilityConverter);
+            _typeTable[4] = typeof(global::szd1.MainPage);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -240,7 +242,8 @@ namespace szd1.szd1_XamlTypeInfo
 
         private object Activate_0_BoolToVisibilityConverter() { return new global::szd1.Converters.BoolToVisibilityConverter(); }
         private object Activate_2_StickyMapToShapeConverter() { return new global::szd1.Converters.StickyMapToShapeConverter(); }
-        private object Activate_3_MainPage() { return new global::szd1.MainPage(); }
+        private object Activate_3_BoolToInverseVisibilityConverter() { return new global::szd1.Converters.BoolToInverseVisibilityConverter(); }
+        private object Activate_4_MainPage() { return new global::szd1.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -270,18 +273,25 @@ namespace szd1.szd1_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 3:   //  szd1.MainPage
-                userType = new global::szd1.szd1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_MainPage;
+            case 3:   //  szd1.Converters.BoolToInverseVisibilityConverter
+                userType = new global::szd1.szd1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_3_BoolToInverseVisibilityConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Windows.UI.Xaml.Controls.Page
+            case 4:   //  szd1.MainPage
+                userType = new global::szd1.szd1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::szd1.szd1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  Windows.UI.Xaml.Controls.UserControl
+            case 6:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::szd1.szd1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }

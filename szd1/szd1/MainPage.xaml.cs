@@ -32,26 +32,20 @@ namespace szd1
 		private void FillominoClick(object sender, RoutedEventArgs e) {
 			VM.IsInFillomino = true;
 			VM.IsInMenu = false;
-			string fileName = @"Levels\Fillomino\fillomino.txt"; //TODO
-			VM.FillBL.SetFillominoGrid(gameGrid, fileName);
+			VM.FillBL.SetComboBoxes(levelChooser, algorithmChooser);
 		}
 
 		private void StickyBlocksClick(object sender, RoutedEventArgs e) {
 			VM.IsInMenu = false;
 			VM.IsInSticky = true;
-			string fileName = @"Levels\StickyBlocks\stickyblocks.txt"; //TODO
-			VM.StickyBL.LoadStickyBlocks(fileName);
+			VM.StickyBL.SetComboBoxes(levelChooser, algorithmChooser);
 		}
 
-		private void FillominoBackButtonClick(object sender, RoutedEventArgs e) {
+		private void BackButtonClick(object sender, RoutedEventArgs e) {
 			VM.IsInMenu = true;
 			VM.IsInFillomino = false;
-			gameGrid = new Grid(); //todo: its an ugly hack -> need to load everything first, only the visibilities change
-		}
-
-		private void StickyBackButtonClick(object sender, RoutedEventArgs e) {
-			VM.IsInMenu = true;
 			VM.IsInSticky = false;
+			gameGrid = new Grid(); //todo: its an ugly hack -> need to load everything first, only the visibilities change
 		}
 
 		private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args) {
@@ -61,7 +55,27 @@ namespace szd1
 		}
 
 		private void StickyStartButtonClick(object sender, RoutedEventArgs e) {
-			VM.StickyBL.Start();
+			//VM.StickyBL.Start();
+		}
+
+		private void LevelChooserSelectedChanged(object sender, SelectionChangedEventArgs e) {
+			if ((sender as ComboBox).SelectedValue != null) {
+				if (VM.IsInFillomino) {
+					string fileName = Path.Combine(@"Levels\Fillomino\", (string)(sender as ComboBox).SelectedValue); //TODO
+					VM.FillBL.SetFillominoGrid(gameGrid, fileName);
+				} else if (VM.IsInSticky) {
+					string fileName = Path.Combine(@"Levels\StickyBlocks\", (string)(sender as ComboBox).SelectedValue); //TODO
+					VM.StickyBL.LoadStickyBlocks(fileName);
+				}
+			}
+		}
+
+		private void LevelChooserDropDownClosed(object sender, object e) {
+			startButton.Focus(FocusState.Pointer);
+		}
+
+		private void AlgorithmChooserSelectedChanged(object sender, SelectionChangedEventArgs e) {
+			//todo
 		}
 	}
 }
