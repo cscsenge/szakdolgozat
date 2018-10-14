@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using szd1.Fillomino;
 using szd1.StickyBlocks;
 using szd1.StickyBlocks.Classes;
 
@@ -18,18 +19,13 @@ namespace szd1 {
 		public bool IsInSticky { get { return isInSticky; } set { isInSticky = value; OPC(); } }
 		Unit[,] stickyArray;
 		public Unit[,] StickyArray { get { return stickyArray; } set { stickyArray = value; OPC(); } }
-		public StickyBusinessLogic BL;
+		public StickyBusinessLogic StickyBL;
+		public FillBusinessLogic FillBL;
 
 		public ViewModel() {
-			BL = new StickyBusinessLogic(this);
-		}
-
-		public void LoadStickyBlocks(string fileName) {
-			StickyArray = BL.LoadStickyBlocks(fileName);
-		}
-
-		public void StickyUnitMove(Windows.UI.Core.KeyEventArgs args) { //todo UGLY!!!
-			StickyArray = BL.PlayerMove(args);
+			StickyBL = new StickyBusinessLogic(this);
+			StickyArray = new Unit[0, 0];
+			FillBL = new FillBusinessLogic(this);
 		}
 	}
 

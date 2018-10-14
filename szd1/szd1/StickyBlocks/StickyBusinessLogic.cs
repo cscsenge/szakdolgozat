@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Input;
 using szd1.StickyBlocks.Algorithms;
 
 namespace szd1.StickyBlocks {
+
 	class StickyBusinessLogic {
 		private int stickySizeWidth;
 		private int stickySizeHeight;
@@ -22,7 +23,7 @@ namespace szd1.StickyBlocks {
 			stuckedUnits = new List<Point>();
 		}
 
-		public Unit[,] LoadStickyBlocks(string fileName) {
+		public void LoadStickyBlocks(string fileName) {
 			string[] rows = File.ReadAllLines(fileName);
 			stickySizeWidth = int.Parse(rows[0]);
 			stickySizeHeight = int.Parse(rows[1]);
@@ -37,38 +38,14 @@ namespace szd1.StickyBlocks {
 					}
 				}
 			}
-			return stickyArray;
+			VM.StickyArray = stickyArray;
 		}
-		private static Random r = new Random();
 
 		public void Start() {
 			Algorithms.RuleBasedAlgorithm.RuleBased rb = new Algorithms.RuleBasedAlgorithm.RuleBased(VM.StickyArray);
 		}
 
-		/*public void Start() {
-			StickyPopulation firstPopulation = new StickyPopulation(Consts.STICKY_PCOUNT, VM.StickyArray);
-			for (int i = 0; i < Consts.STICKY_GCOUNT; i++) {
-				generations.Add(null);
-			}
-			generations[0] = firstPopulation;
-
-			for (int i = 0; i < Consts.STICKY_GCOUNT - 1; i++) {
-				generations[i + 1] = new StickyPopulation();
-				for (int j = 0; j < Consts.STICKY_PCOUNT; j++) {
-					parent1 = generations[i].chromosomes[r.Next(generations[i].chromosomes.Count)];
-					parent2 = generations[i].chromosomes[r.Next(generations[i].chromosomes.Count)];
-
-					kid = Crossover();
-				}
-			}
-		}
-
-		public StickyChromosome Crossover() {
-			StickyChromosome kid = new StickyChromosome();
-
-		}*/
-
-		public Unit[,] PlayerMove(Windows.UI.Core.KeyEventArgs e) {
+		public void PlayerMove(Windows.UI.Core.KeyEventArgs e) {
 			switch (e.VirtualKey) {
 				case Windows.System.VirtualKey.Right:
 					if (IsUnitCanMove(0, 1)) {
@@ -91,7 +68,6 @@ namespace szd1.StickyBlocks {
 					}
 					break;
 			}
-			return VM.StickyArray;
 		}
 
 		public bool IsUnitCanMove(int dx, int dy) {
@@ -110,25 +86,27 @@ namespace szd1.StickyBlocks {
 		}
 
 		public void PlayerMoveOne(int dx, int dy) {
+			Unit[,] stickyArray = VM.StickyArray;
 			AddNewFilledOnes();
-			VM.StickyArray[(int)stickyGamer.X, (int)stickyGamer.Y] = new Unit(UnitType.Empty, new Point(stickyGamer.X, stickyGamer.Y));
+			stickyArray[(int)stickyGamer.X, (int)stickyGamer.Y] = new Unit(UnitType.Empty, new Point(stickyGamer.X, stickyGamer.Y));
 			stickyGamer.X += dx;
 			stickyGamer.Y += dy;
-			VM.StickyArray[(int)stickyGamer.X, (int)stickyGamer.Y] = new Unit(UnitType.Player, new Point(stickyGamer.X, stickyGamer.Y)); ;
+			stickyArray[(int)stickyGamer.X, (int)stickyGamer.Y] = new Unit(UnitType.Player, new Point(stickyGamer.X, stickyGamer.Y)); ;
 			List<Point> tempStuckedUnits = new List<Point>();
 			foreach (Point stuckedUnit in stuckedUnits) {
-				if (VM.StickyArray[(int)stuckedUnit.X, (int)stuckedUnit.Y].Type != UnitType.Player) VM.StickyArray[(int)stuckedUnit.X, (int)stuckedUnit.Y] = new Unit(UnitType.Empty, new Point(stuckedUnit.X, stuckedUnit.Y));
-				if (VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy].Type == UnitType.Bordered) {
-					VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy] = new Unit(UnitType.Empty, new Point(stuckedUnit.X + dx, stuckedUnit.Y + dy));
+				if (stickyArray[(int)stuckedUnit.X, (int)stuckedUnit.Y].Type != UnitType.Player) stickyArray[(int)stuckedUnit.X, (int)stuckedUnit.Y] = new Unit(UnitType.Empty, new Point(stuckedUnit.X, stuckedUnit.Y));
+				if (stickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy].Type == UnitType.Bordered) {
+					stickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy] = new Unit(UnitType.Empty, new Point(stuckedUnit.X + dx, stuckedUnit.Y + dy));
 					break;
 				}
 				Point temp = new Point(stuckedUnit.X, stuckedUnit.Y);
 				temp.X += dx;
 				temp.Y += dy;
 				tempStuckedUnits.Add(temp);
-				VM.StickyArray[(int)temp.X, (int)temp.Y] = new Unit(UnitType.Filled, new Point(temp.X, temp.Y)); ;
+				stickyArray[(int)temp.X, (int)temp.Y] = new Unit(UnitType.Filled, new Point(temp.X, temp.Y)); ;
 			}
 			stuckedUnits = tempStuckedUnits;
+			VM.StickyArray = stickyArray;
 		}
 
 		public void AddNewFilledOnes() {

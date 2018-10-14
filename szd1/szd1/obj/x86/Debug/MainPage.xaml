@@ -11,19 +11,19 @@
         <local:StickyMapToShapeConverter x:Key="MapToGeometry"/>
     </Page.Resources>
     <Grid x:ConnectionId='2' x:Name="mainGrid" BorderBrush="Black" BorderThickness="1">
-        <Button x:ConnectionId='3' x:Name="fillominoButton" Content="Fillomino" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Center"                                                                                                                          />
-        <Button x:ConnectionId='4' x:Name="stickyButton" Content="Sticky Blocks" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Center"                                                                                                                             />
-        <Grid x:ConnectionId='5' x:Name="gameGrid" BorderBrush="Black" BorderThickness="1"                                                                                                         Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <ItemsControl x:ConnectionId='6'                                                                                                                                                                                                         >
+        <Button x:ConnectionId='3' x:Name="fillominoButton" Content="Fillomino" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Center"                                                                                                                   />
+        <Button x:ConnectionId='4' x:Name="stickyButton" Content="Sticky Blocks" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Center"                                                                                                                      />
+        <Grid x:ConnectionId='5' x:Name="gameGrid" BorderBrush="Black" BorderThickness="1"                                                                                                  Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <ItemsControl x:ConnectionId='6'                                                                                                                                                                                           >
             <ItemsControl.ItemsPanel >
                 <ItemsPanelTemplate>
                     <Canvas Width="800" Height="480" Background="Beige" VerticalAlignment="Top" HorizontalAlignment="Right"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <Button x:ConnectionId='7' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                                         />
-        <Button x:ConnectionId='8' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                                   />
-        <Button x:ConnectionId='9' Content="Start" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top"                                                                                                                                    />
+        <Button x:ConnectionId='7' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                                  />
+        <Button x:ConnectionId='8' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                            />
+        <Button x:ConnectionId='9' Content="Start" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top"                                                                                                                             />
     </Grid>
 </Page>
 

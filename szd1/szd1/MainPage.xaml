@@ -11,18 +11,18 @@
         <local:StickyMapToShapeConverter x:Key="MapToGeometry"/>
     </Page.Resources>
     <Grid x:Name="mainGrid" BorderBrush="Black" BorderThickness="1">
-        <Button x:Name="fillominoButton" Content="Fillomino" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Center" Click="FillominoClick" Visibility="{x:Bind viewModel.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}"/>
-        <Button x:Name="stickyButton" Content="Sticky Blocks" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Center" Click="StickyBlocksClick" Visibility="{x:Bind viewModel.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}"/>
-        <Grid x:Name="gameGrid" BorderBrush="Black" BorderThickness="1" Visibility="{x:Bind viewModel.IsInFillomino, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-        <ItemsControl ItemsSource="{x:Bind viewModel.StickyArray, Mode=OneWay, Converter={StaticResource MapToGeometry}}" Visibility="{x:Bind viewModel.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}">
+        <Button x:Name="fillominoButton" Content="Fillomino" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Center" Click="FillominoClick" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}"/>
+        <Button x:Name="stickyButton" Content="Sticky Blocks" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Center" Click="StickyBlocksClick" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}"/>
+        <Grid x:Name="gameGrid" BorderBrush="Black" BorderThickness="1" Visibility="{x:Bind VM.IsInFillomino, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <ItemsControl ItemsSource="{x:Bind VM.StickyArray, Mode=OneWay, Converter={StaticResource MapToGeometry}}" Visibility="{x:Bind VM.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}">
             <ItemsControl.ItemsPanel >
                 <ItemsPanelTemplate>
                     <Canvas Width="800" Height="480" Background="Beige" VerticalAlignment="Top" HorizontalAlignment="Right"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <Button Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{x:Bind viewModel.IsInFillomino, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="FillominoBackButtonClick"/>
-        <Button Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{x:Bind viewModel.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="StickyBackButtonClick"/>
-        <Button Content="Start" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Visibility="{x:Bind viewModel.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="StickyStartButtonClick"/>
+        <Button Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{x:Bind VM.IsInFillomino, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="FillominoBackButtonClick"/>
+        <Button Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{x:Bind VM.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="StickyBackButtonClick"/>
+        <Button Content="Start" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Visibility="{x:Bind VM.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Click="StickyStartButtonClick"/>
     </Grid>
 </Page>
