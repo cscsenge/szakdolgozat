@@ -45,6 +45,7 @@ namespace szd1
 			VM.IsInMenu = true;
 			VM.IsInFillomino = false;
 			VM.IsInSticky = false;
+			VM.IsItTheEnd = false;
 			gameGrid = new Grid(); //todo: its an ugly hack -> need to load everything first, only the visibilities change
 		}
 
@@ -55,7 +56,7 @@ namespace szd1
 		}
 
 		private void StickyStartButtonClick(object sender, RoutedEventArgs e) {
-			//VM.StickyBL.Start();
+			VM.FillBL.StartGenetic(gameGrid);
 		}
 
 		private void LevelChooserSelectedChanged(object sender, SelectionChangedEventArgs e) {

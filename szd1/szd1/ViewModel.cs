@@ -21,6 +21,8 @@ namespace szd1 {
 		public Unit[,] StickyArray { get { return stickyArray; } set { stickyArray = value; OPC(); } }
 		public StickyBusinessLogic StickyBL;
 		public FillBusinessLogic FillBL;
+		bool isItTheEnd = false;
+		public bool IsItTheEnd { get { return isItTheEnd; } set { isItTheEnd = value; OPC(); } }
 
 		public ViewModel() {
 			StickyBL = new StickyBusinessLogic(this);

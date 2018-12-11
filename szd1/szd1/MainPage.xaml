@@ -5,21 +5,26 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:szd1.Converters"
-    mc:Ignorable="d" Height="800" Width="1200" BorderBrush="Aqua">
+    mc:Ignorable="d" >
     <Page.Resources>
         <local:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
         <local:StickyMapToShapeConverter x:Key="MapToGeometry"/>
         <local:BoolToInverseVisibilityConverter x:Key="BoolToInverseVisibility"/>
     </Page.Resources>
-    <Grid x:Name="mainGrid" BorderBrush="Black" BorderThickness="1">
-        <Button x:Name="fillominoButton" Content="Fillomino" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Center" Click="FillominoClick" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}"/>
-        <Button x:Name="stickyButton" Content="Sticky Blocks" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Center" Click="StickyBlocksClick" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}"/>
-        <Grid x:Name="gameGrid" BorderBrush="Black" BorderThickness="1" Visibility="{x:Bind VM.IsInFillomino, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+    <Grid x:Name="mainGrid" Background="WhiteSmoke" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TextBlock Text="Choose a game!" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,500" FontFamily="Yu Gothic" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}"/>
+        <Button x:Name="fillominoButton" HorizontalAlignment="Center" Margin="0,0,550,0" VerticalAlignment="Center" Click="FillominoClick" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}">
+            <Image Source="/Assets/fillomino_pic.png" Height="300"/>
+        </Button>
+        <Button x:Name="stickyButton" HorizontalAlignment="Center" Margin="350,0,0,0" VerticalAlignment="Center" Click="StickyBlocksClick" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToVisibility}}">
+            <Image Source="/Assets/sticky_pic.png" Height="300"/>
+        </Button>
+        <Grid x:Name="gameGrid" Visibility="{x:Bind VM.IsInFillomino, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right"/>
         <ScrollViewer IsVerticalRailEnabled="True" IsVerticalScrollChainingEnabled="true" IsEnabled="False">
         <ItemsControl ItemsSource="{x:Bind VM.StickyArray, Mode=OneWay, Converter={StaticResource MapToGeometry}}" Visibility="{x:Bind VM.IsInSticky, Mode=OneWay, Converter={StaticResource BoolToVisibility}}">
             <ItemsControl.ItemsPanel >
                 <ItemsPanelTemplate>
-                    <Canvas Width="800" Height="480" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                        <Canvas Width="800" Height="480" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,100,0"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
@@ -27,6 +32,7 @@
         <Button Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" Click="BackButtonClick"/>
         <ComboBox x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="0,100,0,0" VerticalAlignment="Top" Width="200" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" SelectionChanged="LevelChooserSelectedChanged" DropDownClosed="LevelChooserDropDownClosed"/>
         <ComboBox x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="0,150,0,0" VerticalAlignment="Top" Width="200" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" SelectionChanged="AlgorithmChooserSelectedChanged" DropDownClosed="LevelChooserDropDownClosed"/>
-        <Button x:Name="startButton" Content="Start" HorizontalAlignment="Left" Width="100" Height="30" Margin="0,200,0,0" VerticalAlignment="Top" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" Click="StickyStartButtonClick"/>
+        <Button x:Name="startButton" Content="Start" HorizontalAlignment="Left" Width="100" Height="30" Margin="0,200,0,0" VerticalAlignment="Top" Visibility="{x:Bind VM.IsInMenu, Mode=OneWay, Converter={StaticResource BoolToInverseVisibility}}" Click="StickyStartButtonClick" IsEnabled="false"/>
+        <TextBlock Text="You won!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="{x:Bind VM.IsItTheEnd, Mode=OneWay, Converter={StaticResource BoolToVisibility}}" Foreground="Red" Margin="0,0,0,100"/>
     </Grid>
 </Page>

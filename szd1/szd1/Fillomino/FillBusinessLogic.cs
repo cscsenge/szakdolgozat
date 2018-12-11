@@ -4,17 +4,21 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using szd1.Fillomino.Classes;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.Foundation;
+using szd1.Fillomino.Algorithms.Backtrack;
+using szd1.Fillomino.Algorithms.Genetic;
 
 namespace szd1.Fillomino {
 	class FillBusinessLogic {
 
 		private int fillSize;
-		private int[,] fillArray;
+		private Unit[,] fillArray;
 		public ViewModel VM;
 
 		public FillBusinessLogic(ViewModel VM) {
@@ -24,18 +28,19 @@ namespace szd1.Fillomino {
 		public void LoadFillomino(string fileName) {
 			string[] rows = File.ReadAllLines(fileName);
 			fillSize = int.Parse(rows[0]);
-			fillArray = new int[fillSize, fillSize];
+			fillArray = new Unit[fillSize, fillSize];
 			for (int i = 0; i < fillSize; i++) {
 				for (int j = 0; j < fillSize; j++) {
-					if (rows[1 + i][j] != 'x') {
-						fillArray[i, j] = (int)Char.GetNumericValue(rows[1 + i][j]);
-					}
+					int number = (int)Char.GetNumericValue(rows[1 + i][j]);
+					fillArray[i, j] = new Unit(new Point(i, j), i * fillSize + j ,number, number > 0 ? true: false);
 				}
 			}
 		}
 
-		public void SetFillominoGrid(Grid gameGrid, string fileName) {
-			VM.FillBL.LoadFillomino(fileName);
+		public void SetFillominoGrid(Grid gameGrid, string fileName = null) {
+			if (fileName != null) {
+				VM.FillBL.LoadFillomino(fileName);
+			}
 			gameGrid.RowDefinitions.Clear();
 			gameGrid.ColumnDefinitions.Clear();
 			gameGrid.Children.Clear();
@@ -59,8 +64,8 @@ namespace szd1.Fillomino {
 						VerticalAlignment = VerticalAlignment.Stretch
 					};
 					button.FontSize = button.Width / 2;
-					if (fillArray[i, j] > 0) {
-						button.Content = fillArray[i, j].ToString();
+					if (fillArray[i, j].DoesHaveNumber) {
+						button.Content = fillArray[i, j].Number.ToString();
 						button.IsEnabled = false;
 						button.Background = new SolidColorBrush(Color.FromArgb(255, 192, 192, 192));
 					}
@@ -94,6 +99,16 @@ namespace szd1.Fillomino {
 					(sender as Button).Content = keyString.Where(x => Char.IsNumber(x)).First();
 				}
 			}
+		}
+
+		public void StartBacktrack() {
+			FillBacktrack fbt = new FillBacktrack();
+			fbt.ExecuteBacktrack(fillArray);
+		}
+
+		public void StartGenetic(Grid gameGrid) {
+			FillGenetic gen = new FillGenetic(fillArray);
+			gen.Find(gameGrid);
 		}
 	}
 }

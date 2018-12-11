@@ -5,29 +5,35 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:szd1.Converters"
-    mc:Ignorable="d" Height="800" Width="1200" BorderBrush="Aqua">
+    mc:Ignorable="d" >
     <Page.Resources>
         <local:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
         <local:StickyMapToShapeConverter x:Key="MapToGeometry"/>
         <local:BoolToInverseVisibilityConverter x:Key="BoolToInverseVisibility"/>
     </Page.Resources>
-    <Grid x:ConnectionId='2' x:Name="mainGrid" BorderBrush="Black" BorderThickness="1">
-        <Button x:ConnectionId='3' x:Name="fillominoButton" Content="Fillomino" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Center"                                                                                                                   />
-        <Button x:ConnectionId='4' x:Name="stickyButton" Content="Sticky Blocks" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Center"                                                                                                                      />
-        <Grid x:ConnectionId='5' x:Name="gameGrid" BorderBrush="Black" BorderThickness="1"                                                                                                  Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+    <Grid x:ConnectionId='2' x:Name="mainGrid" Background="WhiteSmoke" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TextBlock x:ConnectionId='3' Text="Choose a game!" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,500" FontFamily="Yu Gothic"                                                                                            />
+        <Button x:ConnectionId='4' x:Name="fillominoButton" HorizontalAlignment="Center" Margin="0,0,550,0" VerticalAlignment="Center"                                                                                                                   >
+            <Image Source="/Assets/fillomino_pic.png" Height="300"/>
+        </Button>
+        <Button x:ConnectionId='5' x:Name="stickyButton" HorizontalAlignment="Center" Margin="350,0,0,0" VerticalAlignment="Center"                                                                                                                      >
+            <Image Source="/Assets/sticky_pic.png" Height="300"/>
+        </Button>
+        <Grid x:ConnectionId='6' x:Name="gameGrid"                                                                                                  Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right"/>
         <ScrollViewer IsVerticalRailEnabled="True" IsVerticalScrollChainingEnabled="true" IsEnabled="False">
-        <ItemsControl x:ConnectionId='10'                                                                                                                                                                                           >
+        <ItemsControl x:ConnectionId='12'                                                                                                                                                                                           >
             <ItemsControl.ItemsPanel >
                 <ItemsPanelTemplate>
-                    <Canvas Width="800" Height="480" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                        <Canvas Width="800" Height="480" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,100,0"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
         </ScrollViewer>
-        <Button x:ConnectionId='6' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                           />
-        <ComboBox x:ConnectionId='7' x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="0,100,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                              />
-        <ComboBox x:ConnectionId='8' x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="0,150,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                                  />
-        <Button x:ConnectionId='9' x:Name="startButton" Content="Start" HorizontalAlignment="Left" Width="100" Height="30" Margin="0,200,0,0" VerticalAlignment="Top"                                                                                                                                  />
+        <Button x:ConnectionId='7' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                           />
+        <ComboBox x:ConnectionId='8' x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="0,100,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                              />
+        <ComboBox x:ConnectionId='9' x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="0,150,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                                  />
+        <Button x:ConnectionId='10' x:Name="startButton" Content="Start" HorizontalAlignment="Left" Width="100" Height="30" Margin="0,200,0,0" VerticalAlignment="Top"                                                                                                                                   IsEnabled="false"/>
+        <TextBlock x:ConnectionId='11' Text="You won!" HorizontalAlignment="Center" VerticalAlignment="Bottom"                                                                                               Foreground="Red" Margin="0,0,0,100"/>
     </Grid>
 </Page>
 

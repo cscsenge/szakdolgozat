@@ -40,6 +40,7 @@ namespace szd1.StickyBlocks {
 				}
 			}
 			VM.StickyArray = stickyArray;
+			VM.IsItTheEnd = false;
 		}
 
 		public void SetComboBoxes(ComboBox levelChooser, ComboBox algorithmChooser) {
@@ -57,7 +58,7 @@ namespace szd1.StickyBlocks {
 		}
 
 		public void Start() {
-			Algorithms.RuleBasedAlgorithm.RuleBased rb = new Algorithms.RuleBasedAlgorithm.RuleBased(VM.StickyArray);
+			Algorithms.RuleBased.RuleBased rb = new Algorithms.RuleBased.RuleBased(VM.StickyArray);
 		}
 
 		public void PlayerMove(Windows.UI.Core.KeyEventArgs e) {
@@ -90,7 +91,7 @@ namespace szd1.StickyBlocks {
 				if (stuckedUnits.Count > 0) {
 					foreach (Point stuckedUnit in stuckedUnits) {
 						if (VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy].Type == UnitType.Empty || VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy].Type == UnitType.Player || VM.StickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy].Type == UnitType.Bordered) {
-							return true;
+							return true; //TODO if its in stuckedunits
 						}
 					}
 				} else {
@@ -110,7 +111,7 @@ namespace szd1.StickyBlocks {
 			List<Point> tempStuckedUnits = new List<Point>();
 			foreach (Point stuckedUnit in stuckedUnits) {
 				if (stickyArray[(int)stuckedUnit.X, (int)stuckedUnit.Y].Type != UnitType.Player) stickyArray[(int)stuckedUnit.X, (int)stuckedUnit.Y] = new Unit(UnitType.Empty, new Point(stuckedUnit.X, stuckedUnit.Y));
-				if (stickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy].Type == UnitType.Bordered) {
+				if (stickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy].Type == UnitType.Bordered) { //if it gets to its bordered unit
 					stickyArray[(int)stuckedUnit.X + dx, (int)stuckedUnit.Y + dy] = new Unit(UnitType.Empty, new Point(stuckedUnit.X + dx, stuckedUnit.Y + dy));
 					break;
 				}
@@ -122,6 +123,9 @@ namespace szd1.StickyBlocks {
 			}
 			stuckedUnits = tempStuckedUnits;
 			VM.StickyArray = stickyArray;
+			if (IsItTheEnd()) {
+				VM.IsItTheEnd = true;
+			}
 		}
 
 		public void AddNewFilledOnes() {
@@ -134,6 +138,13 @@ namespace szd1.StickyBlocks {
 			} else if (VM.StickyArray[(int)stickyGamer.X, (int)stickyGamer.Y - 1].Type == UnitType.Filled && !stuckedUnits.Contains(new Point(stickyGamer.X, stickyGamer.Y - 1))) {
 				stuckedUnits.Add(new Point(stickyGamer.X, stickyGamer.Y - 1));
 			}
+		}
+
+		public bool IsItTheEnd() {
+			foreach (Unit item in VM.StickyArray) {
+				if (item.Type == UnitType.Bordered) return false;
+			}
+			return true;
 		}
 	}
 }

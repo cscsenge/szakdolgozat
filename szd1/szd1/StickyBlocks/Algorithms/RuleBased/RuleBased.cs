@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using szd1.StickyBlocks.Classes;
 using Windows.Foundation;
 
-namespace szd1.StickyBlocks.Algorithms.RuleBasedAlgorithm {
+namespace szd1.StickyBlocks.Algorithms.RuleBased {
 	class RuleBased {
 
 		private Unit[,] table;

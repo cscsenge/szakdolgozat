@@ -336,7 +336,6 @@ C:\Users\csend\Documents\szakdolgozat\szd1\szd1\bin\x86\Debug\System.Xml.ReaderW
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\bin\x86\Debug\System.Xml.XDocument.dll
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\bin\x86\Debug\System.Xml.XmlDocument.dll
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\bin\x86\Debug\System.Xml.XmlSerializer.dll
-C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\szd1.csprojAssemblyReference.cache
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\App.g.i.cs
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\App.g.cs
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\MainPage.g.i.cs
@@ -416,8 +415,6 @@ C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\FxResources.System
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\FxResources.System.Xml.XmlSerializer.SR.resw
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\priconfig.xml
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\priconfig.xml.intermediate
-C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\layout.resfiles
-C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\layout.resfiles.intermediate
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\resources.resfiles
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\resources.resfiles.intermediate
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\pri.resfiles
@@ -426,3 +423,9 @@ C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\qualifiers.txt
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\unfiltered.layout.resfiles
+C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\unfiltered.layout.resfiles.intermediate
+C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\filtered.layout.resfiles
+C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\filtered.layout.resfiles.intermediate
+C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\excluded.layout.resfiles
+C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\excluded.layout.resfiles.intermediate
