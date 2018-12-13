@@ -429,3 +429,4 @@ C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\filtered.layout.re
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\filtered.layout.resfiles.intermediate
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\excluded.layout.resfiles
 C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\excluded.layout.resfiles.intermediate
+C:\Users\csend\Documents\szakdolgozat\szd1\szd1\obj\x86\Debug\szd1.csprojAssemblyReference.cache

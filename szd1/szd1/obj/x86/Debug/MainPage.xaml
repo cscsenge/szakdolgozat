@@ -19,20 +19,20 @@
         <Button x:ConnectionId='5' x:Name="stickyButton" HorizontalAlignment="Center" Margin="350,0,0,0" VerticalAlignment="Center"                                                                                                                      >
             <Image Source="/Assets/sticky_pic.png" Height="300"/>
         </Button>
-        <Grid x:ConnectionId='6' x:Name="gameGrid"                                                                                                  Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <Grid x:ConnectionId='6' x:Name="gameGrid"                                                                                                  Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,50,50,0"/>
         <ScrollViewer IsVerticalRailEnabled="True" IsVerticalScrollChainingEnabled="true" IsEnabled="False">
         <ItemsControl x:ConnectionId='12'                                                                                                                                                                                           >
             <ItemsControl.ItemsPanel >
                 <ItemsPanelTemplate>
-                        <Canvas Width="800" Height="480" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,100,0"/>
+                        <Canvas Width="800" Height="480" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="50,0,50,0"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
         </ScrollViewer>
         <Button x:ConnectionId='7' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                           />
-        <ComboBox x:ConnectionId='8' x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="0,100,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                              />
-        <ComboBox x:ConnectionId='9' x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="0,150,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                                  />
-        <Button x:ConnectionId='10' x:Name="startButton" Content="Start" HorizontalAlignment="Left" Width="100" Height="30" Margin="0,200,0,0" VerticalAlignment="Top"                                                                                                                                   IsEnabled="false"/>
+        <ComboBox x:ConnectionId='8' x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="50,100,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                              />
+        <ComboBox x:ConnectionId='9' x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="50,150,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                                  />
+        <Button x:ConnectionId='10' x:Name="startButton" Content="Start" HorizontalAlignment="Left" Width="100" Height="30" Margin="50,200,0,0" VerticalAlignment="Top"                                                                                                                                   IsEnabled="false"/>
         <TextBlock x:ConnectionId='11' Text="You won!" HorizontalAlignment="Center" VerticalAlignment="Bottom"                                                                                               Foreground="Red" Margin="0,0,0,100"/>
     </Grid>
 </Page>

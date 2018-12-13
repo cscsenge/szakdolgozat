@@ -25,6 +25,7 @@ namespace szd1.StickyBlocks {
 		}
 
 		public void LoadStickyBlocks(string fileName) {
+			stuckedUnits = new List<Point>();
 			string[] rows = File.ReadAllLines(fileName);
 			stickySizeWidth = int.Parse(rows[0]);
 			stickySizeHeight = int.Parse(rows[1]);
