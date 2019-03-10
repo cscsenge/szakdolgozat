@@ -1,0 +1,8 @@
+﻿fillomino backtrack
+	- sok megoldásból választ egy véletlenszerűt, azt jeleníti meg
+	- az üresen maradt helyeket kitölti egyelőre 1-esekkel
+3 fillomino pálya hozzáadva
+reload button mindkettőnél
+start a beállított algoritmussal -> egyelőre csak fillomino backtrack indul
+3 új metódus a Variation osztályhoz
+sticky bug javítások: néha nem tudott elindulni blokkal, néha nem ragadt rá egy blokk, néha átment a falon

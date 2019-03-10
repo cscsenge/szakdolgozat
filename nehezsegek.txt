@@ -5,3 +5,5 @@
 3. TXT jelek
 4. a játékos és a blokk távolságának meghatározása
 5. szabályalapú algoritmus: akadályoknál hogy viselkedjen
+6. UI kezelése
+7. fillomino backtrack módszerek

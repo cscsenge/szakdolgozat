@@ -8,6 +8,7 @@ using Windows.Foundation;
 
 namespace szd1.Fillomino.Algorithms.Backtrack {
 	public class FillBacktrack {
+
 		List<Point> subVariations;
 		Dictionary<int, List<Variation>> allVariationsByUnits = new Dictionary<int, List<Variation>>();
 		private Unit[,] fillArray;
@@ -15,7 +16,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 		List<List<Variation>> finalVariations = new List<List<Variation>>();
 		List<Unit[,]> finalArrays = new List<Unit[,]>();
 
-		public void ExecuteBacktrack(Unit[,] fArray) {
+		public Unit[,] ExecuteBacktrack(Unit[,] fArray) {
 			fillArray = fArray;
 			foreach (Unit fillUnit in fillArray) {
 				if (fillUnit.DefaultNumber && fillUnit.Number > 1) {
@@ -25,25 +26,56 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 					FindVariations(fillUnit.Number, fillArray, fillUnit.Point);
 				}
 			}
-			MergeVariations(null, fillArray);
-			List<int> arrayCounts = new List<int>();
-			foreach (Unit[,] finalArray in finalArrays) {
-				int count = 0;
-				for (int i = 0; i < finalArray.GetLength(1); i++) {
-					for (int j = 0; j < finalArray.GetLength(0); j++) {
-						if (finalArray[i, j].IsInVariation) {
-							count++;
-						}
+			MergeVariations();
+			return fillArray;
+		}
+
+		List<Variation> backtrackVariations = new List<Variation>();
+		public Dictionary<int, List<Variation>> FinalEndings { get; private set; }
+		int count = -1;
+		Random r;
+
+		private void MergeVariations() {
+			FinalEndings = new Dictionary<int, List<Variation>>();
+			Backtrack(0);
+			r = new Random();
+			//TODO no elements error
+			List<Variation> final = FinalEndings[r.Next(0, FinalEndings.Count - 1)];
+			ListToArray(final);
+		}
+
+		public void ListToArray(List<Variation> list) {
+			foreach (var variation in list) {
+				foreach (var variationPoint in variation.VariationPoints) {
+					int key = (int)variationPoint.X * fillArray.GetLength(0) + (int)variationPoint.Y;
+					fillArray[(int)variationPoint.X, (int)variationPoint.Y] = new Unit(variationPoint, key, variation.Number);
+				}
+			}
+		}
+
+		private void Backtrack(int key) {
+			if (allVariationsByUnits.Count > 0) {
+				if (key > allVariationsByUnits.Keys.Max()) {
+					count++;
+					List<Variation> variations = new List<Variation>();
+					foreach (var item in backtrackVariations) {
+						variations.Add(item);
+					}
+					FinalEndings.Add(count, variations); //TODO existing
+					return;
+				}
+				if (!allVariationsByUnits.ContainsKey(key)) {
+					Backtrack(key + 1);
+					return;
+				}
+				foreach (var variation in allVariationsByUnits[key]) {
+					if (!variation.HaveCommonPointWithVariationList(backtrackVariations)) {
+						backtrackVariations.Add(variation);
+						Backtrack(key + 1);
+						backtrackVariations.Remove(variation);
 					}
 				}
-				arrayCounts.Add(count);
-			}
-			List<Unit[,]> finalFinal = new List<Unit[,]>();
-			int max = arrayCounts.Max();
-			for (int i = 0; i < arrayCounts.Count; i++) {
-				if (arrayCounts[i] == max) {
-					finalFinal.Add(finalArrays[i]);
-				}
+				key--;
 			}
 		}
 
@@ -60,7 +92,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			foreach (Variation variation in allVariationsByUnits[key]) {
 				int j = 0;
 				foreach (Point point in points) {
-					if (variation.VariationPoints.Any(x => x.X == point.X && x.Y == point.Y)){
+					if (variation.VariationPoints.Any(x => x.X == point.X && x.Y == point.Y)) {
 						j++;
 					}
 				}
@@ -137,7 +169,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 					if (IsVariableFills(item, newFillArray)) { //if it fills
 						ChangeInVariation(item, newFillArray, true);
 						finalArrays.Add(newFillArray);
-						MergeVariations(item, newFillArray);	
+						MergeVariations(item, newFillArray);
 						newFillArray = RemoveVariationFromArray(item, newFillArray);
 						ChangeInVariation(item, newFillArray, false);
 					}
@@ -216,62 +248,5 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			}
 			return false;
 		}
-
-		//public void MergeVariations() {
-		//	int firstKey = allVariationsByUnits.First().Key;
-		//	List<Variation> firstVariations = allVariationsByUnits[firstKey];
-		//	allVariationsByUnits.Remove(firstKey);
-		//	finalVariations = new List<List<Variation>>();
-		//	foreach (Variation firstVariation in firstVariations) {
-		//		variations = new List<Variation>();
-		//		variations.Add(firstVariation);
-		//		MergeBacktrack(firstKey, firstVariation);
-		//	}
-		//}
-
-		//public void MergeBacktrack(int previousKey, Variation previousVariation) {
-		//	int currentKey = GetKeyByPreviousKey(previousKey);
-		//	if (currentKey > -1) {
-		//		List<Variation> variationList = allVariationsByUnits[currentKey];
-		//		foreach (Variation variation in variationList) {
-		//			if (DoesVariationsFit(variation) && !variations.Contains(variation)) {
-		//				MergeAdding(variation);
-		//				MergeBacktrack(currentKey, variation);
-		//				if (variations.Count > 1) variations.Remove(variations.Last());
-		//			}
-		//		}
-		//	}
-		//}
-
-		//public void MergeAdding(Variation variation) {
-		//	variations.Add(variation);
-		//	if (variations.Count == allVariationsByUnits.Count) {
-		//		finalVariations.Add(variations);
-		//	}
-		//}
-
-		//public bool DoesVariationsFit(Variation variation1) {
-		//	List<Point> allVariationPoints = new List<Point>();
-		//	foreach (var variation in variations) {
-		//		foreach (var point in variation.VariationPoints) {
-		//			allVariationPoints.Add(point);
-		//		}
-		//	}
-		//	foreach (Point variationPoint in variation1.VariationPoints) {
-		//		if (allVariationPoints.Any(xi => xi.X == variationPoint.X && xi.Y == variationPoint.Y)) {
-		//			return false;
-		//		}
-		//	}
-		//	return true;
-		//}
-
-		//public int GetKeyByPreviousKey(int previousKey) {
-		//	if (keys.Last() != previousKey) {
-		//		int index = keys.IndexOf(previousKey);
-		//		index = keys[index + 1];
-		//		return index;
-		//	}
-		//	return -1;
-		//}
 	}
 }

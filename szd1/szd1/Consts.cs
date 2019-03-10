@@ -10,7 +10,10 @@ namespace szd1 {
 		public const int FILL_GCOUNT = 5000;
 		public const int FILL_PCOUNT = 1000;
 		public const int STICKY_RULEBTABLE_SIZE = 4;
-		public static readonly string[] STICKY_ALGORITHMS = { "Rule-Based", "Genetic", "Other" };
-		public static readonly string[] FILLOMINO_ALGORITHMS = { "Rule-Based", "Genetic" };
+		public const string BACKTRACK = "Backtrack";
+		public const string GENETIC = "Genetic";
+		public const string NEURAL = "Neural";
+		public static readonly string[] STICKY_ALGORITHMS = { BACKTRACK, NEURAL };
+		public static readonly string[] FILLOMINO_ALGORITHMS = { BACKTRACK, GENETIC };
 	}
 }

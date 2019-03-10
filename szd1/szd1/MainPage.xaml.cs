@@ -55,8 +55,20 @@ namespace szd1
 			}
 		}
 
-		private void StickyStartButtonClick(object sender, RoutedEventArgs e) {
-			VM.FillBL.StartGenetic(gameGrid);
+		private void StartButtonClick(object sender, RoutedEventArgs e) {
+			string value = levelChooser.SelectedValue.ToString();
+			if (VM.IsInFillomino) {
+				if (value == Consts.BACKTRACK) {
+					VM.FillBL.StartBacktrack(gameGrid);
+				} else if (value == Consts.GENETIC) {
+					//todo
+				}
+			} else {
+				if (value == Consts.NEURAL) {
+					//todo
+				}
+			}
+			
 		}
 
 		private void LevelChooserSelectedChanged(object sender, SelectionChangedEventArgs e) {
@@ -76,7 +88,14 @@ namespace szd1
 		}
 
 		private void AlgorithmChooserSelectedChanged(object sender, SelectionChangedEventArgs e) {
-			//todo
+		}
+
+		private void ReloadButtonClick(object sender, RoutedEventArgs e) {
+			if (VM.IsInFillomino) {
+				VM.FillBL.SetFillominoGrid(gameGrid, Path.Combine(@"Levels\Fillomino\", levelChooser.SelectedValue.ToString()));
+			} else {
+				VM.StickyBL.LoadStickyBlocks(Path.Combine(@"Levels\StickyBlocks\", levelChooser.SelectedValue.ToString()));
+			}
 		}
 	}
 }

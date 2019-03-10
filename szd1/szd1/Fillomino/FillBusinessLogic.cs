@@ -101,9 +101,19 @@ namespace szd1.Fillomino {
 			}
 		}
 
-		public void StartBacktrack() {
+		public void StartBacktrack(Grid gameGrid) {
 			FillBacktrack fbt = new FillBacktrack();
-			fbt.ExecuteBacktrack(fillArray);
+			fillArray = fbt.ExecuteBacktrack(fillArray);
+			FillEmptyFields();
+			SetFillominoGrid(gameGrid);
+		}
+
+		private void FillEmptyFields() {
+			foreach (var unit in fillArray) {
+				if (!unit.DoesHaveNumber) {
+					unit.Number = 1; //TODO FindEmptyFields
+				}
+			}
 		}
 
 		public void StartGenetic(Grid gameGrid) {

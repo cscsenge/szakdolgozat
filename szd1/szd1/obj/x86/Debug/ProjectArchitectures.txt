@@ -1,1 +1,1 @@
-C:\Users\csend\Documents\szakdolgozat\szd1\szd1\szd1.csproj;x86
+D:\Repos\szakdolgozat\szd1\szd1\szd1.csproj;x86
