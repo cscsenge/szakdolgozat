@@ -9,7 +9,7 @@ namespace szd1.Fillomino.Classes {
 	public class Unit {
 		public Point Point { get; set; }
 		public int Number { get; set; }
-		public bool DoesHaveNumber { get { return Number > 0 ? true : false; } }
+		public bool HasValue { get { return Number > 0 ? true : false; } }
 		public bool DefaultNumber { get; }
 		public bool IsInVariation { get; set; }
 		public int Key { get; }
@@ -19,6 +19,14 @@ namespace szd1.Fillomino.Classes {
 			Key = key;
 			Number = number;
 			DefaultNumber = defaultNumber;
+		}
+
+		public int GetX() {
+			return (int)Point.X;
+		}
+
+		public int GetY() {
+			return (int)Point.Y;
 		}
 	}
 }

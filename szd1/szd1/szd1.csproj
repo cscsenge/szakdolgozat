@@ -97,9 +97,7 @@
     </Compile>
     <Compile Include="Converters\BoolToInverseVisibilityConverter.cs" />
     <Compile Include="Fillomino\Algorithms\Backtrack\FillBacktrack.cs" />
-    <Compile Include="Fillomino\Algorithms\Genetic\FillChromosome.cs" />
     <Compile Include="Fillomino\Algorithms\Genetic\FillGenetic.cs" />
-    <Compile Include="Fillomino\Algorithms\Genetic\FillPopulation.cs" />
     <Compile Include="Fillomino\Classes\Unit.cs" />
     <Compile Include="Fillomino\Classes\Variation.cs" />
     <Compile Include="StickyBlocks\Classes\Unit.cs" />

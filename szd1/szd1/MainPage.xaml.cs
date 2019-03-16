@@ -56,12 +56,12 @@ namespace szd1
 		}
 
 		private void StartButtonClick(object sender, RoutedEventArgs e) {
-			string value = levelChooser.SelectedValue.ToString();
+			string value = algorithmChooser.SelectedValue.ToString();
 			if (VM.IsInFillomino) {
 				if (value == Consts.BACKTRACK) {
 					VM.FillBL.StartBacktrack(gameGrid);
 				} else if (value == Consts.GENETIC) {
-					//todo
+					VM.FillBL.StartGenetic(gameGrid);
 				}
 			} else {
 				if (value == Consts.NEURAL) {

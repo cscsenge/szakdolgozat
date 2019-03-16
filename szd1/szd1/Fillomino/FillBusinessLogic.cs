@@ -18,7 +18,7 @@ namespace szd1.Fillomino {
 	class FillBusinessLogic {
 
 		private int fillSize;
-		private Unit[,] fillArray;
+		public static Unit[,] FillArray;
 		public ViewModel VM;
 
 		public FillBusinessLogic(ViewModel VM) {
@@ -28,11 +28,11 @@ namespace szd1.Fillomino {
 		public void LoadFillomino(string fileName) {
 			string[] rows = File.ReadAllLines(fileName);
 			fillSize = int.Parse(rows[0]);
-			fillArray = new Unit[fillSize, fillSize];
+			FillArray = new Unit[fillSize, fillSize];
 			for (int i = 0; i < fillSize; i++) {
 				for (int j = 0; j < fillSize; j++) {
 					int number = (int)Char.GetNumericValue(rows[1 + i][j]);
-					fillArray[i, j] = new Unit(new Point(i, j), i * fillSize + j ,number, number > 0 ? true: false);
+					FillArray[i, j] = new Unit(new Point(i, j), i * fillSize + j ,number, number > 0 ? true: false);
 				}
 			}
 		}
@@ -64,8 +64,8 @@ namespace szd1.Fillomino {
 						VerticalAlignment = VerticalAlignment.Stretch
 					};
 					button.FontSize = button.Width / 2;
-					if (fillArray[i, j].DoesHaveNumber) {
-						button.Content = fillArray[i, j].Number.ToString();
+					if (FillArray[i, j].HasValue) {
+						button.Content = FillArray[i, j].Number.ToString();
 						button.IsEnabled = false;
 						button.Background = new SolidColorBrush(Color.FromArgb(255, 192, 192, 192));
 					}
@@ -103,22 +103,33 @@ namespace szd1.Fillomino {
 
 		public void StartBacktrack(Grid gameGrid) {
 			FillBacktrack fbt = new FillBacktrack();
-			fillArray = fbt.ExecuteBacktrack(fillArray);
+			FillArray = fbt.ExecuteBacktrack(FillArray);
 			FillEmptyFields();
 			SetFillominoGrid(gameGrid);
 		}
 
 		private void FillEmptyFields() {
-			foreach (var unit in fillArray) {
-				if (!unit.DoesHaveNumber) {
+			foreach (var unit in FillArray) {
+				if (!unit.HasValue) {
 					unit.Number = 1; //TODO FindEmptyFields
 				}
 			}
 		}
 
 		public void StartGenetic(Grid gameGrid) {
-			FillGenetic gen = new FillGenetic(fillArray);
-			gen.Find(gameGrid);
+			List<Unit> emptyPlaces = GetEmptyPlaces();
+			FillGenetic gen = new FillGenetic(emptyPlaces, 9); //todo get max value of array
+			//gen.Find(gameGrid);
+		}
+
+		public List<Unit> GetEmptyPlaces() {
+			List<Unit> emptyPlaces = new List<Unit>();
+			foreach (var item in FillArray) {
+				if (!item.HasValue) {
+					emptyPlaces.Add(item);
+				}
+			}
+			return emptyPlaces;
 		}
 	}
 }

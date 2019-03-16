@@ -123,7 +123,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 				int y = (int)subVariation.Y;
 				if (y - 1 >= 0) {
 					Unit tempUnit = fillArray[x, y - 1];
-					if ((!tempUnit.DoesHaveNumber || tempUnit.Number == number) && !(x == originalPosition.X && y - 1 == originalPosition.Y)) {
+					if ((!tempUnit.HasValue || tempUnit.Number == number) && !(x == originalPosition.X && y - 1 == originalPosition.Y)) {
 						if (!subVariations.Any(xi => xi.X == x && xi.Y == y - 1)) {
 							if (!okPlaces.Contains(tempUnit.Point)) okPlaces.Add(tempUnit.Point);
 						}
@@ -131,7 +131,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 				}
 				if (x - 1 >= 0) {
 					Unit tempUnit = fillArray[x - 1, y];
-					if ((!tempUnit.DoesHaveNumber || tempUnit.Number == number) && !(x - 1 == originalPosition.X && y == originalPosition.Y)) {
+					if ((!tempUnit.HasValue || tempUnit.Number == number) && !(x - 1 == originalPosition.X && y == originalPosition.Y)) {
 						if (!subVariations.Any(xi => xi.X == x - 1 && xi.Y == y)) {
 							if (!okPlaces.Contains(tempUnit.Point)) okPlaces.Add(tempUnit.Point);
 						}
@@ -139,7 +139,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 				}
 				if (x + 1 < fillArray.GetLength(1)) {
 					Unit tempUnit = fillArray[x + 1, y];
-					if ((!tempUnit.DoesHaveNumber || tempUnit.Number == number) && !(x + 1 == originalPosition.X && y == originalPosition.Y)) {
+					if ((!tempUnit.HasValue || tempUnit.Number == number) && !(x + 1 == originalPosition.X && y == originalPosition.Y)) {
 						if (!subVariations.Any(xi => xi.X == x + 1 && xi.Y == y)) {
 							if (!okPlaces.Contains(tempUnit.Point)) okPlaces.Add(tempUnit.Point);
 						}
@@ -147,7 +147,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 				}
 				if (y + 1 < fillArray.GetLength(0)) {
 					Unit tempUnit = fillArray[x, y + 1];
-					if ((!tempUnit.DoesHaveNumber || tempUnit.Number == number) && !(x == originalPosition.X && y + 1 == originalPosition.Y)) {
+					if ((!tempUnit.HasValue || tempUnit.Number == number) && !(x == originalPosition.X && y + 1 == originalPosition.Y)) {
 						if (!subVariations.Any(xi => xi.X == x && xi.Y == y + 1)) {
 							if (!okPlaces.Contains(tempUnit.Point)) okPlaces.Add(tempUnit.Point);
 						}
@@ -185,7 +185,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 
 		public bool IsVariableFills(Variation variation, Unit[,] newFillArray) {
 			foreach (var item in variation.VariationPoints) {
-				if (newFillArray[(int)item.X, (int)item.Y].DoesHaveNumber && (!newFillArray[(int)item.X, (int)item.Y].DefaultNumber || newFillArray[(int)item.X, (int)item.Y].IsInVariation)) {
+				if (newFillArray[(int)item.X, (int)item.Y].HasValue && (!newFillArray[(int)item.X, (int)item.Y].DefaultNumber || newFillArray[(int)item.X, (int)item.Y].IsInVariation)) {
 					return false;
 				}
 			}
@@ -216,7 +216,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 		public Unit FindUnitToFill(Unit[,] newFillArray) {
 			for (int i = 0; i < newFillArray.GetLength(1); i++) {
 				for (int j = 0; j < newFillArray.GetLength(0); j++) {
-					if (!newFillArray[i, j].DoesHaveNumber && IsThereAVariationToFillUnit(newFillArray[i, j])) {
+					if (!newFillArray[i, j].HasValue && IsThereAVariationToFillUnit(newFillArray[i, j])) {
 						return newFillArray[i, j];
 					}
 				}
