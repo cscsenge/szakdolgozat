@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace szd1 {
 	public class Consts {
 		public const int STICKY_CANVAS_WIDTH = 800;
-		public const int FILL_GCOUNT = 5000;
+		public const int FILL_GCOUNT = 500;
 		public const int FILL_PCOUNT = 1000;
 		public const int STICKY_RULEBTABLE_SIZE = 4;
 		public const string BACKTRACK = "Backtrack";

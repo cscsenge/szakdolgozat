@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using szd1.Fillomino;
 using szd1.StickyBlocks;
 using szd1.StickyBlocks.Classes;
+using Windows.UI.Xaml.Controls;
 
 namespace szd1 {
 	class ViewModel: Bindable {
@@ -24,10 +25,10 @@ namespace szd1 {
 		bool isItTheEnd = false;
 		public bool IsItTheEnd { get { return isItTheEnd; } set { isItTheEnd = value; OPC(); } }
 
-		public ViewModel() {
+		public ViewModel(Grid gameGrid) {
 			StickyBL = new StickyBusinessLogic(this);
 			StickyArray = new Unit[0, 0];
-			FillBL = new FillBusinessLogic(this);
+			FillBL = new FillBusinessLogic(this, gameGrid);
 		}
 	}
 

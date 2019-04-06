@@ -19,22 +19,26 @@
         <Button x:ConnectionId='5' x:Name="stickyButton" HorizontalAlignment="Center" Margin="350,0,0,0" VerticalAlignment="Center"                                                                                                                      >
             <Image Source="/Assets/sticky_pic.png" Height="300"/>
         </Button>
-        <Grid x:ConnectionId='6' x:Name="gameGrid"                                                                                                  Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,50,50,0"/>
+        <Grid x:ConnectionId='6' x:Name="gameGrid"                                                                                                  Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="480,50,0,0"/>
         <ScrollViewer IsVerticalRailEnabled="True" IsVerticalScrollChainingEnabled="true" IsEnabled="False">
-        <ItemsControl x:ConnectionId='13'                                                                                                                                                                                           >
-            <ItemsControl.ItemsPanel >
-                <ItemsPanelTemplate>
+            <ItemsControl x:ConnectionId='17'                                                                                                                                                                                           >
+                <ItemsControl.ItemsPanel >
+                    <ItemsPanelTemplate>
                         <Canvas Width="800" Height="480" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="50,0,50,0"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-        </ItemsControl>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
         </ScrollViewer>
-        <Button x:ConnectionId='7' Content="Back" HorizontalAlignment="Right"  Margin="0,0,0,0" VerticalAlignment="Bottom"                                                                                                                           />
-        <ComboBox x:ConnectionId='8' x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="50,100,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                              />
-        <ComboBox x:ConnectionId='9' x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="50,150,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                                  />
-        <Button x:ConnectionId='10' x:Name="startButton" Content="Start" HorizontalAlignment="Left" Width="100" Height="30" Margin="50,200,0,0" VerticalAlignment="Top"                                                                                                                             IsEnabled="true"/>
-        <TextBlock x:ConnectionId='11' Text="You won!" HorizontalAlignment="Center" VerticalAlignment="Bottom"                                                                                               Foreground="Red" Margin="0,0,0,100"/>
-        <Button x:ConnectionId='12' x:Name="reloadButton" Content="Reload" HorizontalAlignment="Left" Width="100" Height="30" Margin="50,300,0,0" VerticalAlignment="Top"                                                                                                                              IsEnabled="true"/>
+        <TextBlock x:ConnectionId='7' Text="Puzzle" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Margin="50,100,0,0" FontFamily="Yu Gothic" FontSize="20"                                                                                                   />
+        <ComboBox x:ConnectionId='8' x:Name="levelChooser" HorizontalAlignment="Left" Height="30" Margin="80,150,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                              />
+        <Button x:ConnectionId='9' x:Name="reloadButton" Content="Reload" HorizontalAlignment="Left" Width="80" Height="30" Margin="280,150,0,0" VerticalAlignment="Top"                                                                                                                              IsEnabled="true"/>
+        <TextBlock x:ConnectionId='10' Text="Algorithm" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Margin="50,200,0,0" FontFamily="Yu Gothic" FontSize="20"                                                                                                   />
+        <ComboBox x:ConnectionId='11' x:Name="algorithmChooser" HorizontalAlignment="Left" Height="30" Margin="80,250,0,0" VerticalAlignment="Top" Width="200"                                                                                                                                                                                                  />
+        <Button x:ConnectionId='12' x:Name="solveButton" Content="Solve" HorizontalAlignment="Left" Width="80" Height="30" Margin="280,250,0,0" VerticalAlignment="Top"                                                                                                                             IsEnabled="true"/>
+        <TextBlock x:ConnectionId='13' Text="You won!" HorizontalAlignment="Center" VerticalAlignment="Bottom"                                                                                               Foreground="Red" Margin="0,0,0,100"/>
+        <Button x:ConnectionId='14' x:Name="helpButton"  Content="Help!" HorizontalAlignment="Left" Margin="1180,150,0,0" VerticalAlignment="Top" Width="80" Height="30"                                                                                                                         />
+        <Button x:ConnectionId='15' x:Name="checkButton" Content="Check" HorizontalAlignment="Left" Margin="1180,250,0,0" VerticalAlignment="Top" Width="80" Height="30"                                                                                                                          />
+        <Button x:ConnectionId='16' x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="50,0,0,50" VerticalAlignment="Bottom" Width="80" Height="30"                                                                                                                           />
     </Grid>
 </Page>
 

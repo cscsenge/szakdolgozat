@@ -29,13 +29,14 @@ namespace szd1.Fillomino.Algorithms.Genetic {
 		private int maxValue;
 
 		//methods
-		public FillGenetic(List<Unit> units, int maxValue) {
+		public FillGenetic(List<Unit> units, int maxValue, int size) {
 			bool tesztike = false;
 			this.units = new List<Unit>(units);
 			this.maxValue = maxValue;
 			SetPopulation();
 			population.OrderPopulationByFitness();
-			while (!population.Chromosomes.Exists(x => x.Fitness == 0)) {
+			int count = 0;
+			while (!population.Chromosomes.Exists(x => x.Fitness == 0) && count < Consts.FILL_GCOUNT) {
 				if (population.Chromosomes.First().Fitness < 10) {
 					tesztike = true;
 				}
@@ -47,6 +48,8 @@ namespace szd1.Fillomino.Algorithms.Genetic {
 				if (!population.Chromosomes.Any(o => o != population.Chromosomes[0])) {
 					tesztike = true;
 				}
+				FillBusinessLogic.FillArray = population.Chromosomes.First().GetArray(size);
+				count++;
 			}
 		}
 
@@ -139,7 +142,7 @@ namespace szd1.Fillomino.Algorithms.Genetic {
 
 			public void SetFitness() {
 				int value = 0;
-				foreach (var item in FillBusinessLogic.FillArray) {
+				foreach (var item in FillBusinessLogic.tempFillArray) {
 					if (item.HasValue && item.Number > 1) {
 						nearbyPoints = new List<Point>() {
 							new Point(item.Point.X, item.Point.Y)
@@ -153,34 +156,44 @@ namespace szd1.Fillomino.Algorithms.Genetic {
 			}
 
 			public void GetNearbyNumbers(int x, int y, int number) {
-				if (x + 1 < FillBusinessLogic.FillArray.GetLength(0)) {
-					if ((Genes.Exists(z => z.X == x + 1 && z.Y == y && z.Number == number) || FillBusinessLogic.FillArray[x + 1, y].Number == number) && nearbyPoints.Count < number - 1 && !nearbyPoints.Exists(z => z.X == x + 1 && z.Y == y)) {
+				if (x + 1 < FillBusinessLogic.tempFillArray.GetLength(0)) {
+					if ((Genes.Exists(z => z.X == x + 1 && z.Y == y && z.Number == number) || FillBusinessLogic.tempFillArray[x + 1, y].Number == number) && nearbyPoints.Count < number - 1 && !nearbyPoints.Exists(z => z.X == x + 1 && z.Y == y)) {
 						nearbyValue--;
 						nearbyPoints.Add(new Point(x + 1, y));
 						GetNearbyNumbers(x + 1, y, number);
 					}
 				}
-				if (y + 1 < FillBusinessLogic.FillArray.GetLength(1)) {
-					if (Genes.Exists(z => z.X == x && z.Y == y + 1 && z.Number == number || FillBusinessLogic.FillArray[x, y + 1].Number == number) && nearbyPoints.Count < number - 1 && !nearbyPoints.Exists(z => z.X == x && z.Y == y + 1)) {
+				if (y + 1 < FillBusinessLogic.tempFillArray.GetLength(1)) {
+					if (Genes.Exists(z => z.X == x && z.Y == y + 1 && z.Number == number || FillBusinessLogic.tempFillArray[x, y + 1].Number == number) && nearbyPoints.Count < number - 1 && !nearbyPoints.Exists(z => z.X == x && z.Y == y + 1)) {
 						nearbyValue--;
 						nearbyPoints.Add(new Point(x, y + 1));
 						GetNearbyNumbers(x, y + 1, number);
 					}
 				}
 				if (x - 1 >= 0) {
-					if (Genes.Exists(z => z.X == x - 1 && z.Y == y && z.Number == number || FillBusinessLogic.FillArray[x - 1, y].Number == number) && nearbyPoints.Count < number - 1 && !nearbyPoints.Exists(z => z.X == x - 1 && z.Y == y)) {
+					if (Genes.Exists(z => z.X == x - 1 && z.Y == y && z.Number == number || FillBusinessLogic.tempFillArray[x - 1, y].Number == number) && nearbyPoints.Count < number - 1 && !nearbyPoints.Exists(z => z.X == x - 1 && z.Y == y)) {
 						nearbyValue--;
 						nearbyPoints.Add(new Point(x - 1, y));
 						GetNearbyNumbers(x - 1, y, number);
 					}
 				}
 				if (y - 1 >= 0) {
-					if (Genes.Exists(z => z.X == x && z.Y == y - 1 && z.Number == number || FillBusinessLogic.FillArray[x, y - 1].Number == number) && nearbyPoints.Count < number - 1 && !nearbyPoints.Exists(z => z.X == x && z.Y == y - 1)) {
+					if (Genes.Exists(z => z.X == x && z.Y == y - 1 && z.Number == number || FillBusinessLogic.tempFillArray[x, y - 1].Number == number) && nearbyPoints.Count < number - 1 && !nearbyPoints.Exists(z => z.X == x && z.Y == y - 1)) {
 						nearbyValue--;
 						nearbyPoints.Add(new Point(x, y - 1));
 						GetNearbyNumbers(x, y - 1, number);
 					}
 				}
+			}
+
+			public Unit[,] GetArray(int size) {
+				Unit[,] fArray = FillBusinessLogic.tempFillArray;
+				int key = 0;
+				foreach (var gene in Genes) {
+					fArray[gene.X, gene.Y] = new Unit(new Point(gene.X, gene.Y), key, gene.Number);
+					key++;
+				}
+				return fArray;
 			}
 		}
 

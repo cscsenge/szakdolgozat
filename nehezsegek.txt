@@ -7,3 +7,4 @@
 5. szabályalapú algoritmus: akadályoknál hogy viselkedjen
 6. UI kezelése
 7. fillomino backtrack módszerek
+8. fillomino genetikus fitness megállapítása

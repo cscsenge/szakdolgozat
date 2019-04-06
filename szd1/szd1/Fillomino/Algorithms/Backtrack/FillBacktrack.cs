@@ -9,47 +9,67 @@ using Windows.Foundation;
 namespace szd1.Fillomino.Algorithms.Backtrack {
 	public class FillBacktrack {
 
-		List<Point> subVariations;
-		Dictionary<int, List<Variation>> allVariationsByUnits = new Dictionary<int, List<Variation>>();
-		private Unit[,] fillArray;
-		List<Variation> variations = new List<Variation>();
-		List<List<Variation>> finalVariations = new List<List<Variation>>();
-		List<Unit[,]> finalArrays = new List<Unit[,]>();
+		public Dictionary<int, List<Variation>> FinalEndings { get; private set; }
+		public Unit[,] FinalArray { get; private set; }
+		public List<Unit[,]> FinalArrays { get; private set; }
 
-		public Unit[,] ExecuteBacktrack(Unit[,] fArray) {
-			fillArray = fArray;
-			foreach (Unit fillUnit in fillArray) {
+		private List<Point> subVariations;
+		private Dictionary<int, List<Variation>> allVariationsByUnits = new Dictionary<int, List<Variation>>();
+		private List<Variation> variations = new List<Variation>();
+		private List<List<Variation>> finalVariations = new List<List<Variation>>();
+		private List<Unit[,]> finalArrays = new List<Unit[,]>();
+		private List<Variation> backtrackVariations = new List<Variation>();
+		private int count = -1;
+		private static Random random = new Random();
+
+		public Unit[,] ExecuteBacktrack() {
+			allVariationsByUnits.Clear();
+			variations.Clear();
+			finalVariations.Clear();
+			backtrackVariations.Clear();
+			finalArrays.Clear();
+			FinalArray = new Unit[FillBusinessLogic.FillArray.GetLength(0), FillBusinessLogic.FillArray.GetLength(1)];
+			for (int i = 0; i < FillBusinessLogic.FillArray.GetLength(0); i++) {
+				for (int j = 0; j < FillBusinessLogic.FillArray.GetLength(1); j++) {
+					FinalArray[i, j] = FillBusinessLogic.FillArray[i, j];
+				}
+			}
+			foreach (Unit fillUnit in FinalArray) {
 				if (fillUnit.DefaultNumber && fillUnit.Number > 1) {
 					allVariationsByUnits.Add(fillUnit.Key, new List<Variation>());
 					subVariations = new List<Point>();
 					subVariations.Add(fillUnit.Point);
-					FindVariations(fillUnit.Number, fillArray, fillUnit.Point);
+					FindVariations(fillUnit.Number, FinalArray, fillUnit.Point);
 				}
 			}
 			MergeVariations();
-			return fillArray;
+			return FinalArray;
 		}
-
-		List<Variation> backtrackVariations = new List<Variation>();
-		public Dictionary<int, List<Variation>> FinalEndings { get; private set; }
-		int count = -1;
-		Random r;
 
 		private void MergeVariations() {
 			FinalEndings = new Dictionary<int, List<Variation>>();
 			Backtrack(0);
-			r = new Random();
 			//TODO no elements error
-			List<Variation> final = FinalEndings[r.Next(0, FinalEndings.Count - 1)];
+			FinalArrays = new List<Unit[,]>();
+			DictionaryToArrayList();
+			int key = random.Next(0, FinalEndings.Count - 1);
+			List<Variation> final = FinalEndings.First().Value;// FinalEndings[key];
 			ListToArray(final);
 		}
 
-		public void ListToArray(List<Variation> list) {
+		private void ListToArray(List<Variation> list) {
 			foreach (var variation in list) {
 				foreach (var variationPoint in variation.VariationPoints) {
-					int key = (int)variationPoint.X * fillArray.GetLength(0) + (int)variationPoint.Y;
-					fillArray[(int)variationPoint.X, (int)variationPoint.Y] = new Unit(variationPoint, key, variation.Number);
+					int key = (int)variationPoint.X * FinalArray.GetLength(0) + (int)variationPoint.Y;
+					FinalArray[(int)variationPoint.X, (int)variationPoint.Y] = new Unit(variationPoint, key, variation.Number);
 				}
+				FinalArrays.Add(FinalArray);
+			}
+		}
+
+		private void DictionaryToArrayList() {
+			foreach (var item in FinalEndings) {
+				ListToArray(item.Value);
 			}
 		}
 
@@ -61,7 +81,8 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 					foreach (var item in backtrackVariations) {
 						variations.Add(item);
 					}
-					FinalEndings.Add(count, variations); //TODO existing
+					
+					FinalEndings.Add(count, variations);
 					return;
 				}
 				if (!allVariationsByUnits.ContainsKey(key)) {
@@ -79,7 +100,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			}
 		}
 
-		public void AddUnitToVariations(int key, int number, Point unit, Unit[,] fillArray) {
+		private void AddUnitToVariations(int key, int number, Point unit, Unit[,] fillArray) {
 			Point previous = subVariations.Last();
 			int previousKey = fillArray[(int)previous.X, (int)previous.Y].Key;
 			subVariations.Add(unit);
@@ -88,7 +109,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			}
 		}
 
-		public bool DoesAllVariationsByUnitsContainVariation(int key, List<Point> points) {
+		private bool DoesAllVariationsByUnitsContainVariation(int key, List<Point> points) {
 			foreach (Variation variation in allVariationsByUnits[key]) {
 				int j = 0;
 				foreach (Point point in points) {
@@ -103,7 +124,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			return false;
 		}
 
-		public void FindVariations(int number, Unit[,] fillArray, Point originalPosition) {
+		private void FindVariations(int number, Unit[,] fillArray, Point originalPosition) {
 			int originalKey = fillArray[(int)originalPosition.X, (int)originalPosition.Y].Key;
 			List<Point> okPlaces = GetOKPlaces(number, fillArray, originalPosition);
 			foreach (Point kPoint in okPlaces) {
@@ -115,7 +136,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			}
 		}
 
-		public List<Point> GetOKPlaces(int number, Unit[,] fillArray, Point originalPosition) {
+		private List<Point> GetOKPlaces(int number, Unit[,] fillArray, Point originalPosition) {
 			List<Point> okPlaces = new List<Point>();
 			int originalKey = fillArray[(int)originalPosition.X, (int)originalPosition.Y].Key;
 			foreach (Point subVariation in subVariations) {
@@ -157,7 +178,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			return okPlaces;
 		}
 
-		public void MergeVariations(Variation fillVariation, Unit[,] fillArray) {
+		private void MergeVariations(Variation fillVariation, Unit[,] fillArray) {
 			//get new fillArray
 			Unit[,] newFillArray = GetNewFillArray(fillVariation, fillArray);
 			//find an empty place to fill
@@ -177,13 +198,13 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			}
 		}
 
-		public void ChangeInVariation(Variation variation, Unit[,] newFillArray, bool state) {
+		private void ChangeInVariation(Variation variation, Unit[,] newFillArray, bool state) {
 			foreach (var item in variation.VariationPoints) {
 				newFillArray[(int)item.X, (int)item.Y].IsInVariation = state;
 			}
 		}
 
-		public bool IsVariableFills(Variation variation, Unit[,] newFillArray) {
+		private bool IsVariableFills(Variation variation, Unit[,] newFillArray) {
 			foreach (var item in variation.VariationPoints) {
 				if (newFillArray[(int)item.X, (int)item.Y].HasValue && (!newFillArray[(int)item.X, (int)item.Y].DefaultNumber || newFillArray[(int)item.X, (int)item.Y].IsInVariation)) {
 					return false;
@@ -192,7 +213,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			return true;
 		}
 
-		public Unit[,] RemoveVariationFromArray(Variation variation, Unit[,] newFillArray) {
+		private Unit[,] RemoveVariationFromArray(Variation variation, Unit[,] newFillArray) {
 			foreach (var variationPoint in variation.VariationPoints) {
 				if (!newFillArray[(int)variationPoint.X, (int)variationPoint.Y].DefaultNumber) {
 					newFillArray[(int)variationPoint.X, (int)variationPoint.Y].Number = 0;
@@ -201,7 +222,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			return newFillArray;
 		}
 
-		public Unit[,] GetNewFillArray(Variation variation, Unit[,] fillArray) {
+		private Unit[,] GetNewFillArray(Variation variation, Unit[,] fillArray) {
 			if (variation != null) {
 				Unit[,] newFillArray = fillArray;
 				foreach (var variationPoint in variation.VariationPoints) {
@@ -213,7 +234,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			}
 		}
 
-		public Unit FindUnitToFill(Unit[,] newFillArray) {
+		private Unit FindUnitToFill(Unit[,] newFillArray) {
 			for (int i = 0; i < newFillArray.GetLength(1); i++) {
 				for (int j = 0; j < newFillArray.GetLength(0); j++) {
 					if (!newFillArray[i, j].HasValue && IsThereAVariationToFillUnit(newFillArray[i, j])) {
@@ -224,7 +245,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			return null;
 		}
 
-		public List<Variation> FindVariationsToFillUnit(Unit unit) {
+		private List<Variation> FindVariationsToFillUnit(Unit unit) {
 			List<Variation> variationList = new List<Variation>();
 			double x = unit.Point.X;
 			double y = unit.Point.Y;
@@ -238,7 +259,7 @@ namespace szd1.Fillomino.Algorithms.Backtrack {
 			return variationList;
 		}
 
-		public bool IsThereAVariationToFillUnit(Unit unit) {
+		private bool IsThereAVariationToFillUnit(Unit unit) {
 			foreach (var item in allVariationsByUnits.Values) {
 				foreach (var variation in item) {
 					if (!variations.Contains(variation) && variation.VariationPoints.Any(xi => xi.X == unit.Point.X && xi.Y == unit.Point.Y)) {

@@ -50,7 +50,7 @@ namespace szd1.StickyBlocks {
 			DirectoryInfo dir = new DirectoryInfo(@"Levels\StickyBlocks\");
 			foreach (FileInfo file in dir.GetFiles()) {
 				if (file.Extension.Contains("txt")) {
-					levelChooser.Items.Add(file.Name);
+					levelChooser.Items.Add(Path.GetFileNameWithoutExtension(file.Name));
 				}
 			}
 			foreach (string algorithm in Consts.STICKY_ALGORITHMS) {
