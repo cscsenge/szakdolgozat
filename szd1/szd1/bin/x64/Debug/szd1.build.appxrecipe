@@ -373,6 +373,9 @@
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\fillomino_pic.png">
       <PackagePath>Assets\fillomino_pic.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\sokoban_pic.png">
+      <PackagePath>Assets\sokoban_pic.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\sticky_pic.png">
       <PackagePath>Assets\sticky_pic.png</PackagePath>
     </AppxPackagedFile>

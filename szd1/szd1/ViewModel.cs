@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using szd1.Fillomino;
+using szd1.Sokoban;
 using szd1.StickyBlocks;
 using szd1.StickyBlocks.Classes;
 using Windows.UI.Xaml.Controls;
@@ -16,19 +17,21 @@ namespace szd1 {
 		public bool IsInMenu { get { return isInMenu; } set { isInMenu = value; OPC(); } }
 		bool isInFillomino = false;
 		public bool IsInFillomino { get { return isInFillomino; } set { isInFillomino = value; OPC(); } }
-		bool isInSticky = false;
-		public bool IsInSticky { get { return isInSticky; } set { isInSticky = value; OPC(); } }
+		bool isInSokoban = false;
+		public bool IsInSokoban { get { return isInSokoban; } set { isInSokoban = value; OPC(); } }
 		Unit[,] stickyArray;
 		public Unit[,] StickyArray { get { return stickyArray; } set { stickyArray = value; OPC(); } }
-		public StickyBusinessLogic StickyBL;
+		private char[][] sokobanArray;
+		public char[][] SokobanArray { get { return sokobanArray; } set { sokobanArray = value; OPC(); } }
 		public FillBusinessLogic FillBL;
+		public SokobanBusinessLogic SokobanBL;
 		bool isItTheEnd = false;
 		public bool IsItTheEnd { get { return isItTheEnd; } set { isItTheEnd = value; OPC(); } }
 
 		public ViewModel(Grid gameGrid) {
-			StickyBL = new StickyBusinessLogic(this);
 			StickyArray = new Unit[0, 0];
 			FillBL = new FillBusinessLogic(this, gameGrid);
+			SokobanBL = new SokobanBusinessLogic(this);
 		}
 	}
 

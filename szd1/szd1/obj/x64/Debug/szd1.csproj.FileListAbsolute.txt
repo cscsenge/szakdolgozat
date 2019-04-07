@@ -215,4 +215,3 @@ D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\qualifiers.txt
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\qualifiers.txt.intermediate
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\ProjectArchitectures.txt
-D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\szd1.csprojAssemblyReference.cache

@@ -19,36 +19,10 @@ namespace szd1.StickyBlocks.Classes {
 		public Unit(UnitType type, Point point) {
 			Point = point;
 			Type = type;
-			//SetUnitByType(type, color);
 		}
 
 		public Unit() {
 
 		}
-
-
-
-		/*private void SetUnitByType(UnitType type, SolidColorBrush color) {
-			if (color == null) {
-				if (type == UnitType.Empty)	Border = Color = DefaultColor;
-				if (type == UnitType.Wall) Border = Color = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 0, 0));
-				return;
-			}
-			switch (type) {
-				case UnitType.Player:
-				case UnitType.Filled:
-					Border = Color = color;
-					break;
-				case UnitType.Bordered:
-					Color = DefaultColor;
-					Border = color;
-					break;
-				case UnitType.Wall:
-				case UnitType.Empty:
-				default:
-					Border = Color = DefaultColor;
-					break;
-			}
-		}*/
 	}
 }

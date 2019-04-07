@@ -192,7 +192,7 @@ namespace szd1.szd1_XamlTypeInfo
             _typeNameTable = new string[7];
             _typeNameTable[0] = "szd1.Converters.BoolToVisibilityConverter";
             _typeNameTable[1] = "Object";
-            _typeNameTable[2] = "szd1.Converters.StickyMapToShapeConverter";
+            _typeNameTable[2] = "szd1.Converters.CharArrayToGeometry";
             _typeNameTable[3] = "szd1.Converters.BoolToInverseVisibilityConverter";
             _typeNameTable[4] = "szd1.MainPage";
             _typeNameTable[5] = "Windows.UI.Xaml.Controls.Page";
@@ -201,7 +201,7 @@ namespace szd1.szd1_XamlTypeInfo
             _typeTable = new global::System.Type[7];
             _typeTable[0] = typeof(global::szd1.Converters.BoolToVisibilityConverter);
             _typeTable[1] = typeof(global::System.Object);
-            _typeTable[2] = typeof(global::szd1.Converters.StickyMapToShapeConverter);
+            _typeTable[2] = typeof(global::szd1.Converters.CharArrayToGeometry);
             _typeTable[3] = typeof(global::szd1.Converters.BoolToInverseVisibilityConverter);
             _typeTable[4] = typeof(global::szd1.MainPage);
             _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.Page);
@@ -241,7 +241,7 @@ namespace szd1.szd1_XamlTypeInfo
         }
 
         private object Activate_0_BoolToVisibilityConverter() { return new global::szd1.Converters.BoolToVisibilityConverter(); }
-        private object Activate_2_StickyMapToShapeConverter() { return new global::szd1.Converters.StickyMapToShapeConverter(); }
+        private object Activate_2_CharArrayToGeometry() { return new global::szd1.Converters.CharArrayToGeometry(); }
         private object Activate_3_BoolToInverseVisibilityConverter() { return new global::szd1.Converters.BoolToInverseVisibilityConverter(); }
         private object Activate_4_MainPage() { return new global::szd1.MainPage(); }
 
@@ -266,9 +266,9 @@ namespace szd1.szd1_XamlTypeInfo
                 xamlType = new global::szd1.szd1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  szd1.Converters.StickyMapToShapeConverter
+            case 2:   //  szd1.Converters.CharArrayToGeometry
                 userType = new global::szd1.szd1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_2_StickyMapToShapeConverter;
+                userType.Activator = Activate_2_CharArrayToGeometry;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

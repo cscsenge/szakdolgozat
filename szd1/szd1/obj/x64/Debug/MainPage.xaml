@@ -8,7 +8,7 @@
     mc:Ignorable="d" >
     <Page.Resources>
         <local:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
-        <local:StickyMapToShapeConverter x:Key="MapToGeometry"/>
+        <local:CharArrayToGeometry x:Key="MapToGeometry"/>
         <local:BoolToInverseVisibilityConverter x:Key="BoolToInverseVisibility"/>
     </Page.Resources>
     <Grid x:ConnectionId='2' x:Name="mainGrid" Background="WhiteSmoke" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -16,12 +16,12 @@
         <Button x:ConnectionId='4' x:Name="fillominoButton" HorizontalAlignment="Center" Margin="0,0,550,0" VerticalAlignment="Center"                                                                                                                   >
             <Image Source="/Assets/fillomino_pic.png" Height="300"/>
         </Button>
-        <Button x:ConnectionId='5' x:Name="stickyButton" HorizontalAlignment="Center" Margin="350,0,0,0" VerticalAlignment="Center"                                                                                                                      >
-            <Image Source="/Assets/sticky_pic.png" Height="300"/>
+        <Button x:ConnectionId='5' x:Name="sokobanButton" HorizontalAlignment="Center" Margin="350,0,0,0" VerticalAlignment="Center"                                                                                                                 >
+            <Image Source="/Assets/sokoban_pic.png" Height="300"/>
         </Button>
         <Grid x:ConnectionId='6' x:Name="gameGrid"                                                                                                  Width="600" Height="600" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="480,50,0,0"/>
         <ScrollViewer IsVerticalRailEnabled="True" IsVerticalScrollChainingEnabled="true" IsEnabled="False">
-            <ItemsControl x:ConnectionId='17'                                                                                                                                                                                           >
+            <ItemsControl x:ConnectionId='17'                                                                                                                                                                                             >
                 <ItemsControl.ItemsPanel >
                     <ItemsPanelTemplate>
                         <Canvas Width="800" Height="480" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="50,0,50,0"/>

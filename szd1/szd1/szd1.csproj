@@ -96,10 +96,15 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\BoolToInverseVisibilityConverter.cs" />
+    <Compile Include="Converters\CharArrayToGeometry.cs" />
     <Compile Include="Fillomino\Algorithms\Backtrack\FillBacktrack.cs" />
     <Compile Include="Fillomino\Algorithms\Genetic\FillGenetic.cs" />
     <Compile Include="Fillomino\Classes\Unit.cs" />
     <Compile Include="Fillomino\Classes\Variation.cs" />
+    <Compile Include="Sokoban\QLearning\QLearning.cs" />
+    <Compile Include="Sokoban\QLearning\QNode.cs" />
+    <Compile Include="Sokoban\QLearning\State.cs" />
+    <Compile Include="Sokoban\SokobanBusinessLogic.cs" />
     <Compile Include="StickyBlocks\Classes\Unit.cs" />
     <Compile Include="StickyBlocks\Classes\UnitTypes.cs" />
     <Compile Include="Consts.cs" />
@@ -122,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\fillomino_pic.png" />
+    <Content Include="Assets\sokoban_pic.png" />
     <Content Include="Assets\sticky_pic.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

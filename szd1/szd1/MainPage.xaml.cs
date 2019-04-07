@@ -39,23 +39,23 @@ namespace szd1
 			VM.FillBL.SetComboBoxes(levelChooser, algorithmChooser);
 		}
 
-		private void StickyBlocksClick(object sender, RoutedEventArgs e) {
+		private void SokobanClick(object sender, RoutedEventArgs e) {
 			VM.IsInMenu = false;
-			VM.IsInSticky = true;
-			VM.StickyBL.SetComboBoxes(levelChooser, algorithmChooser);
+			VM.IsInSokoban = true;
+			VM.SokobanBL.SetComboBoxes(levelChooser, algorithmChooser);
 		}
 
 		private void BackButtonClick(object sender, RoutedEventArgs e) {
 			VM.IsInMenu = true;
 			VM.IsInFillomino = false;
-			VM.IsInSticky = false;
+			VM.IsInSokoban = false;
 			VM.IsItTheEnd = false;
 			gameGrid = new Grid(); //todo: its an ugly hack -> need to load everything first, only the visibilities change
 		}
 
 		private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args) {
-			if (VM.IsInSticky) {
-				VM.StickyBL.PlayerMove(args);
+			if (VM.IsInSokoban) {
+				VM.SokobanBL.PlayerMove(args);
 			}
 		}
 
@@ -80,9 +80,8 @@ namespace szd1
 				if (VM.IsInFillomino) {
 					string fileName = Path.Combine(@"Levels\Fillomino\", (string)(sender as ComboBox).SelectedValue + ".txt"); //TODO
 					VM.FillBL.SetFillominoGrid(fileName);
-				} else if (VM.IsInSticky) {
-					string fileName = Path.Combine(@"Levels\StickyBlocks\", (string)(sender as ComboBox).SelectedValue + ".txt"); //TODO
-					VM.StickyBL.LoadStickyBlocks(fileName);
+				} else if (VM.IsInSokoban) {
+
 				}
 			}
 		}
@@ -99,7 +98,7 @@ namespace szd1
 				if (VM.IsInFillomino) {
 					VM.FillBL.SetFillominoGrid(Path.Combine(@"Levels\Fillomino\", levelChooser.SelectedValue.ToString() + ".txt"));
 				} else {
-					VM.StickyBL.LoadStickyBlocks(Path.Combine(@"Levels\StickyBlocks\", levelChooser.SelectedValue.ToString() + ".txt"));
+					VM.SokobanBL.LoadMap(Path.Combine(@"Levels\Sokoban\", levelChooser.SelectedValue.ToString() + ".txt"));
 				}
 			}
 			checkButton.Background = defaultButtonColor;
