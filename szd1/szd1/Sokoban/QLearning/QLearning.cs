@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace szd1.Sokoban.QLearning {
-	public class QLearning {
+	class QLearning {
 		/**
 		* This is the learning rate for Q learning
 		*/
@@ -86,10 +86,9 @@ namespace szd1.Sokoban.QLearning {
 		 * @param  filePath the file to be loaded
 		 * @return strategy for Q learning
 		 */
-		public static string execute(string filePath) {
+		public static string execute(SokobanBusinessLogic bl) {
 			QLearning ql = new QLearning();
-
-			ql.init(filePath);
+			ql.init(bl);
 			ql.calculateQ();
 			return ql.getStrategyFromTable();
 		}
@@ -98,11 +97,9 @@ namespace szd1.Sokoban.QLearning {
 		 * This method is to do initialization for Q learning
 		 * @param  filePath the file to be loaded
 		 */
-		public void init(string filePath) {
-			SokobanBusinessLogic ll = new SokobanBusinessLogic();
-			ll.LoadMap(filePath);
-			initState = ll.init();
-			state = ll.init();
+		public void init(SokobanBusinessLogic bl) {
+			initState = bl.init();
+			state = bl.init();
 
 			// initialize Q table
 			table = new Dictionary<QNode, Double>();

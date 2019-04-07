@@ -68,11 +68,10 @@ namespace szd1
 					VM.FillBL.StartGenetic(gameGrid);
 				}
 			} else {
-				if (value == Consts.NEURAL) {
-					//todo
+				if (value == Consts.QLEARNING) {
+					VM.SokobanBL.ExecuteQLearning();
 				}
 			}
-			
 		}
 
 		private void LevelChooserSelectedChanged(object sender, SelectionChangedEventArgs e) {
@@ -81,7 +80,7 @@ namespace szd1
 					string fileName = Path.Combine(@"Levels\Fillomino\", (string)(sender as ComboBox).SelectedValue + ".txt"); //TODO
 					VM.FillBL.SetFillominoGrid(fileName);
 				} else if (VM.IsInSokoban) {
-
+					VM.SokobanBL.LoadMap(Path.Combine(@"Levels\Sokoban\", levelChooser.SelectedValue.ToString() + ".txt"));
 				}
 			}
 		}

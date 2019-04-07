@@ -37,7 +37,6 @@ namespace szd1.Sokoban {
 		}
 
 		public SokobanBusinessLogic() {
-
 		}
 
 		public void LoadMap(string filePath) {
@@ -115,7 +114,6 @@ namespace szd1.Sokoban {
 		}
 
 		public void PlayerMove(Windows.UI.Core.KeyEventArgs e) {
-			boxes.Clear();
 			switch (e.VirtualKey) {
 				case Windows.System.VirtualKey.Right:
 					if (IsUnitCanMove(getX(), getY(), 0, 1)) {
@@ -178,6 +176,7 @@ namespace szd1.Sokoban {
 			} else {
 				levelmap[(int)sokobanGamer.X + dx][(int)sokobanGamer.Y + dy] = Consts.SOKOBAN_PLAYER_FLOOR;
 			}
+			boxes.Clear();
 			VM.SokobanArray = levelmap;
 		}
 
@@ -192,6 +191,28 @@ namespace szd1.Sokoban {
 			}
 			foreach (string algorithm in Consts.SOKOBAN_ALGORITHMS) {
 				algorithmChooser.Items.Add(algorithm);
+			}
+		}
+
+		public async void ExecuteQLearning() {
+			string result = QLearning.QLearning.execute(this);
+			char[] steps = result.ToCharArray();
+			foreach (char step in steps) {
+				switch (step) {
+					case 'u':
+						if (IsUnitCanMove(getX(), getY(), -1, 0)) PlayerMoveOne(-1, 0);
+						break;
+					case 'd':
+						if (IsUnitCanMove(getX(), getY(), 1, 0)) PlayerMoveOne(1, 0);
+						break;
+					case 'l':
+						if (IsUnitCanMove(getX(), getY(), 0, -1)) PlayerMoveOne(0, -1);
+						break;
+					case 'r':
+						if (IsUnitCanMove(getX(), getY(), 0, 1)) PlayerMoveOne(0, 1);
+						break;
+				}
+				await Task.Delay(TimeSpan.FromSeconds(1));
 			}
 		}
 	}

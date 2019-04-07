@@ -1,0 +1,6 @@
+﻿sticky blocks helyett sokoban
+sokobannal lehet játszani
+ikonok hozzáadva
+qlearning algoritmus:
+- megoldja az adott pályát adott helyzetből kiindulva
+- keresés után automatikusan végiglépked a megoldásul kapott útvonalon

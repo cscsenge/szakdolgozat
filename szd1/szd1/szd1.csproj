@@ -126,9 +126,15 @@
     <None Include="szd1_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\crate.png" />
+    <Content Include="Assets\crate2.png" />
+    <Content Include="Assets\empty.png" />
     <Content Include="Assets\fillomino_pic.png" />
+    <Content Include="Assets\goal.png" />
+    <Content Include="Assets\player.png" />
+    <Content Include="Assets\player2.png" />
     <Content Include="Assets\sokoban_pic.png" />
-    <Content Include="Assets\sticky_pic.png" />
+    <Content Include="Assets\wall.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

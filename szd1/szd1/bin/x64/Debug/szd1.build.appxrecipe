@@ -370,14 +370,32 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.xml.xmlserializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\crate.png">
+      <PackagePath>Assets\crate.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\crate2.png">
+      <PackagePath>Assets\crate2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\empty.png">
+      <PackagePath>Assets\empty.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\fillomino_pic.png">
       <PackagePath>Assets\fillomino_pic.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\goal.png">
+      <PackagePath>Assets\goal.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\player.png">
+      <PackagePath>Assets\player.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\player2.png">
+      <PackagePath>Assets\player2.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\sokoban_pic.png">
       <PackagePath>Assets\sokoban_pic.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\sticky_pic.png">
-      <PackagePath>Assets\sticky_pic.png</PackagePath>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\wall.png">
+      <PackagePath>Assets\wall.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
