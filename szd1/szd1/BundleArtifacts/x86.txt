@@ -1,0 +1,2 @@
+MainPackage=D:\Repos\szakdolgozat\szd1\szd1\bin\x86\Debug\SolvingAlgorithms_1.0.1.0_x86_Debug.appx
+SymbolPackage=D:\Repos\szakdolgozat\szd1\szd1\AppPackages\SolvingAlgorithms_1.0.1.0_Debug_Test\SolvingAlgorithms_1.0.1.0_x86_Debug.appxsym

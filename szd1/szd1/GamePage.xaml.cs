@@ -50,7 +50,7 @@ namespace szd1
 			VM.IsInFillomino = false;
 			VM.IsInSokoban = false;
 			VM.IsItTheEnd = false;
-			gameGrid = new Grid(); //todo: its an ugly hack -> need to load everything first, only the visibilities change
+			gameGrid = new Grid();
 		}
 
 		private void CoreWindowKeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args) {
@@ -77,7 +77,7 @@ namespace szd1
 		private void LevelChooserSelectedChanged(object sender, SelectionChangedEventArgs e) {
 			if ((sender as ComboBox).SelectedValue != null) {
 				if (VM.IsInFillomino) {
-					string fileName = Path.Combine(@"Levels\Fillomino\", (string)(sender as ComboBox).SelectedValue + ".txt"); //TODO
+					string fileName = Path.Combine(@"Levels\Fillomino\", (string)(sender as ComboBox).SelectedValue + ".txt");
 					VM.FillBL.SetFillominoGrid(fileName);
 				} else if (VM.IsInSokoban) {
 					VM.SokobanBL.LoadMap(Path.Combine(@"Levels\Sokoban\", levelChooser.SelectedValue.ToString() + ".txt"));
@@ -104,8 +104,6 @@ namespace szd1
 			if (levelChooser.SelectedItem != null) {
 				if (VM.IsInFillomino) {
 					VM.FillBL.BacktrackAndHelp(gameGrid);
-				} else {
-					//todo
 				}
 			}
 		}
@@ -119,8 +117,6 @@ namespace szd1
 					} else {
 						(sender as Button).Background = defaultButtonColor;
 					}
-				} else {
-					//todo
 				}
 			}
 		}

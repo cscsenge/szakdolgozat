@@ -21,6 +21,7 @@ namespace szd1.Fillomino {
 		public static Unit[,] tempFillArray;
 		public ViewModel VM;
 
+		private List<Point> emptyFields;
 		private bool alreadyChecked;
 		private int fillSize;
 		private Grid gameGrid;
@@ -147,7 +148,7 @@ namespace szd1.Fillomino {
 				if (ok) {
 					for (int j = 0; j < tempFillArray.GetLength(0); j++) {
 						for (int z = 0; z < tempFillArray.GetLength(0); z++) {
-							if (!tempFillArray[j, z].HasValue) {
+							if (!tempFillArray[j, z].HasValue && fillBacktrack.FinalArrays[i][j, z].HasValue) {
 								FillArray[j, z].Number = fillBacktrack.FinalArrays[i][j, z].Number;
 								tempFillArray[j, z].Number = fillBacktrack.FinalArrays[i][j, z].Number;
 								end = true;
@@ -208,10 +209,6 @@ namespace szd1.Fillomino {
 				}
 			}
 		}
-
-		
-
-		private List<Point> emptyFields;
 
 		private void GetEmptyFields(int x, int y) {
 			if (x + 1 < FillArray.GetLength(0)) {

@@ -436,6 +436,18 @@
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Levels\Fillomino\8x8.txt">
       <PackagePath>Levels\Fillomino\8x8.txt</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Levels\Sokoban\1..txt">
+      <PackagePath>Levels\Sokoban\1..txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Levels\Sokoban\2..txt">
+      <PackagePath>Levels\Sokoban\2..txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Levels\Sokoban\3..txt">
+      <PackagePath>Levels\Sokoban\3..txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Levels\Sokoban\4..txt">
+      <PackagePath>Levels\Sokoban\4..txt</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
