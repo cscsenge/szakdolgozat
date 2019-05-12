@@ -48,15 +48,5 @@ namespace szd1.Fillomino.Classes {
 			}
 			return false;
 		}
-
-		//public bool IsSameWithVariation(Variation variation) {
-		//	int sum = 0;
-		//	foreach (var variationPoint in variation.VariationPoints) {
-		//		if (!VariationPoints.Exists(x => x.X == variationPoint.X && x.Y == variationPoint.Y)) {
-		//			sum++;
-		//		}
-		//	}
-
-		//}
 	}
 }

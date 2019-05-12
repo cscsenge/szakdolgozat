@@ -76,7 +76,7 @@ namespace szd1.Sokoban.QLearning {
 		 * see whether going up is a valid move
 		 * @return bool whether going up is valid
 		 */
-		private bool isUpValid() {
+		private bool IsUpValid() {
 			// there's always an up, because I'll check later
 			// to make sure you dont move into a wall
 			char up = level[x - 1][y];
@@ -109,7 +109,7 @@ namespace szd1.Sokoban.QLearning {
 		 * see whether going down is a valid move
 		 * @return bool whether going down is valid
 		 */
-		private bool isDownValid() {
+		private bool IsDownValid() {
 			// there's always a down, because I'll check later
 			// to make sure you dont move into a wall
 			char down = level[x + 1][y];
@@ -142,7 +142,7 @@ namespace szd1.Sokoban.QLearning {
 		 * see whether going left is a valid move
 		 * @return bool whether going left is valid
 		 */
-		private bool isLeftValid() {
+		private bool IsLeftValid() {
 			// there's always a left, because I'll check later
 			// to make sure you dont move into a wall
 			char left = level[x][y - 1];
@@ -174,7 +174,7 @@ namespace szd1.Sokoban.QLearning {
 		 * see whether going right is a valid move
 		 * @return bool whether going right is valid
 		 */
-		private bool isRightValid() {
+		private bool IsRightValid() {
 			// there's always a right, because I'll check later
 			// to make sure you dont move into a wall
 			char right = level[x][y + 1];
@@ -208,10 +208,10 @@ namespace szd1.Sokoban.QLearning {
 		 * @param dir direction to move
 		 * @return bool whether going up is valid
 		 */
-		public State computeState(State par, int dir) {
-			char[][] oldlevel = par.getState();
-			int x = par.getX();
-			int y = par.getY();
+		public State ComputeState(State par, int dir) {
+			char[][] oldlevel = par.GetState();
+			int x = par.GetX();
+			int y = par.GetY();
 
 			// 2D deep copy
 			char[][] newlevel = new char[oldlevel.Length][];
@@ -466,18 +466,18 @@ namespace szd1.Sokoban.QLearning {
 		 * get possible action from current state
 		 * @return int array storing the actions
 		 */
-		public int[] possibleActionsFromState() {
+		public int[] PossibleActionsFromState() {
 			List<int> result = new List<int>();
-			if (isUpValid()) {
+			if (IsUpValid()) {
 				result.Add(1);
 			}
-			if (isDownValid()) {
+			if (IsDownValid()) {
 				result.Add(2);
 			}
-			if (isLeftValid()) {
+			if (IsLeftValid()) {
 				result.Add(3);
 			}
-			if (isRightValid()) {
+			if (IsRightValid()) {
 				result.Add(4);
 			}
 
@@ -491,7 +491,7 @@ namespace szd1.Sokoban.QLearning {
 		 * see whether the player is sticking to a box
 		 * @return bool whether the player is sticking to a box
 		 */
-		public bool stickToBox() {
+		public bool StickToBox() {
 			if (level[x - 1][y] == '$' || level[x + 1][y] == '$' || level[x][y + 1] == '$' || level[x][y - 1] == '$') {
 				return true;
 			}
@@ -502,7 +502,7 @@ namespace szd1.Sokoban.QLearning {
 		/**
 		 * update number of exploration
 		 */
-		public void update_explore() {
+		public void UpdateExplore() {
 			this.num_exploration++;
 		}
 		// return the num_exploration
@@ -510,7 +510,7 @@ namespace szd1.Sokoban.QLearning {
 		 * return number of exploration
 		 * @return number of exploration
 		 */
-		public int num_explore() {
+		public int NumExplore() {
 			return this.num_exploration;
 		}
 
@@ -518,7 +518,7 @@ namespace szd1.Sokoban.QLearning {
 		 * check whether any box is in deadlock
 		 * @return bool indicating deadlock or not
 		 */
-		public bool checkDeadlock() {
+		public bool CheckDeadlock() {
 			bool deadlock = false;
 			// checking the position of all box could be consuming
 			for (int i = 0; i < level.Length; i++) {
@@ -680,7 +680,7 @@ namespace szd1.Sokoban.QLearning {
 		 * check whether goal state is reached
 		 * @return bool indicating whether goal state is reached
 		 */
-		public bool isGoal() {
+		public bool IsGoal() {
 			for (int i = 0; i < level.Length; i++) {
 				for (int j = 0; j < level[i].Length; j++) {
 					if (level[i][j] == '.' || level[i][j] == '+') {
@@ -695,7 +695,7 @@ namespace szd1.Sokoban.QLearning {
 		 * check number of goals that has been reached
 		 * @return int number of goals that has been reached
 		 */
-		public int numOfGoals() {
+		public int NumOfGoals() {
 			int num = 0;
 			for (int i = 0; i < level.Length; i++) {
 				for (int j = 0; j < level[i].Length; j++) {
@@ -711,7 +711,7 @@ namespace szd1.Sokoban.QLearning {
 		 * get the current state
 		 * @return char[][] staring the map
 		 */
-		public char[][] getState() {
+		public char[][] GetState() {
 			return level;
 		}
 
@@ -719,7 +719,7 @@ namespace szd1.Sokoban.QLearning {
 		 * get the x coordinate of player
 		 * @return int the x coordinate
 		 */
-		public int getX() {
+		public int GetX() {
 			return x;
 		}
 
@@ -727,7 +727,7 @@ namespace szd1.Sokoban.QLearning {
 		 * get the y coordinate of player
 		 * @return int the y coordinate
 		 */
-		public int getY() {
+		public int GetY() {
 			return y;
 		}
 

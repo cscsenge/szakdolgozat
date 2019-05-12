@@ -29,7 +29,7 @@ namespace szd1.Converters {
 								pathFigure.Stroke = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
 								break;
 							case Consts.SOKOBAN_EMPTY: //empty space
-								pathFigure.Fill = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+								pathFigure.Fill = new SolidColorBrush(Color.FromArgb(255, 245, 245, 245));
 								break;
 							case Consts.SOKOBAN_PLAYER_FLOOR: //player
 								pathFigure.Fill = new ImageBrush {

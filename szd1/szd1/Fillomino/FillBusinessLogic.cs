@@ -17,20 +17,20 @@ using szd1.Fillomino.Algorithms.Genetic;
 namespace szd1.Fillomino {
 	class FillBusinessLogic {
 
-		private int fillSize;
-		private bool alreadyChecked;
 		public static Unit[,] FillArray;
 		public static Unit[,] tempFillArray;
 		public ViewModel VM;
 
+		private bool alreadyChecked;
+		private int fillSize;
 		private Grid gameGrid;
 
-		private static FillBacktrack fillBacktrack;
+		private static Backtrack fillBacktrack;
 
 		public FillBusinessLogic(ViewModel VM, Grid gameGrid) {
 			this.VM = VM;
 			this.gameGrid = gameGrid;
-			fillBacktrack = new FillBacktrack();
+			fillBacktrack = new Backtrack();
 		}
 
 		public void LoadFillomino(string fileName) {
@@ -50,7 +50,7 @@ namespace szd1.Fillomino {
 
 		public void SetFillominoGrid(string fileName = null) {
 			if (fileName != null) {
-				LoadFillomino(fileName);
+				 LoadFillomino(fileName);
 			}
 			gameGrid.RowDefinitions.Clear();
 			gameGrid.ColumnDefinitions.Clear();
@@ -189,24 +189,57 @@ namespace szd1.Fillomino {
 		}
 
 		private void Backtrack(bool fillArray = false) {
-			Unit[,] endArray = fillBacktrack.ExecuteBacktrack();
+			Unit[,] endArray = fillBacktrack.Execute();
 			if (fillArray) {
 				FillArray = endArray;
 			}
 		}
 
 		private void FillEmptyFields() {
-			foreach (var unit in FillArray) {
-				if (!unit.HasValue) {
-					unit.Number = 1; //TODO FindEmptyFields
+			Point p;
+			while (fillBacktrack.HasEmptyFields(FillArray).X != -1) {
+				emptyFields = new List<Point>();
+				p = fillBacktrack.HasEmptyFields(FillArray);
+				emptyFields.Add(p);
+				GetEmptyFields((int)p.X, (int)p.Y);
+				int number = emptyFields.Count;
+				foreach (var field in emptyFields) {
+					FillArray[(int)field.X, (int)field.Y].Number = number;
+				}
+			}
+		}
+
+		
+
+		private List<Point> emptyFields;
+
+		private void GetEmptyFields(int x, int y) {
+			if (x + 1 < FillArray.GetLength(0)) {
+				if (!FillArray[x + 1, y].HasValue) {
+					emptyFields.Add(FillArray[x + 1, y].Point);
+				}
+			}
+			if (y + 1 < FillArray.GetLength(1)) {
+				if (!FillArray[x, y + 1].HasValue) {
+					emptyFields.Add(FillArray[x, y + 1].Point);
+				}
+			}
+			if (x - 1 >= 0) {
+				if (!FillArray[x - 1, y].HasValue) {
+					emptyFields.Add(FillArray[x - 1, y].Point);
+				}
+			}
+			if (y - 1 >= 0) {
+				if (!FillArray[x, y - 1].HasValue) {
+					emptyFields.Add(FillArray[x, y - 1].Point);
 				}
 			}
 		}
 
 		public void StartGenetic(Grid gameGrid) {
 			List<Unit> emptyPlaces = GetEmptyPlaces();
-			FillGenetic gen = new FillGenetic(units: emptyPlaces, maxValue: 9, size: fillSize); //todo get max value of array
-			//gen.Find(gameGrid);
+			Genetic gen = new Genetic(units: emptyPlaces, size: fillSize);
+            SetFillominoGrid();
 		}
 
 		public List<Unit> GetEmptyPlaces() {

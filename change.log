@@ -1,8 +1,6 @@
-﻿fillomino backtrack fix
-fillomino genetikus hozzáadva
-tipp (help) kérése és jelenlegi tábla ellenőrzése (check) hozzáadva
-design fix
------
-neural network próbálgatások -> nem jött össze -> helyette reinforcement learning (q-learning)
-maze solving learning algoritmusok tanulmányozása
-sudoku MI megoldások tanulmányozása fillomino-hoz
+﻿sticky blocks helyett sokoban
+sokobannal lehet játszani
+ikonok hozzáadva
+qlearning algoritmus:
+- megoldja az adott pályát adott helyzetből kiindulva
+- keresés után automatikusan végiglépked a megoldásul kapott útvonalon

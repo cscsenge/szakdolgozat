@@ -12,14 +12,14 @@ namespace szd1
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::szd1.szd1_XamlTypeInfo.XamlMetaDataProvider __appProvider;
-        private global::szd1.szd1_XamlTypeInfo.XamlMetaDataProvider _AppProvider
+        private global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlMetaDataProvider __appProvider;
+        private global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlMetaDataProvider _AppProvider
         {
             get
             {
                 if (__appProvider == null)
                 {
-                    __appProvider = new global::szd1.szd1_XamlTypeInfo.XamlMetaDataProvider();
+                    __appProvider = new global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlMetaDataProvider();
                 }
                 return __appProvider;
             }
@@ -51,7 +51,7 @@ namespace szd1
     }
 }
 
-namespace szd1.szd1_XamlTypeInfo
+namespace szd1.SolvingAlgorithms_XamlTypeInfo
 {
     /// <summary>
     /// Main class for providing metadata for the app or library
@@ -60,15 +60,15 @@ namespace szd1.szd1_XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public sealed class XamlMetaDataProvider : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::szd1.szd1_XamlTypeInfo.XamlTypeInfoProvider _provider = null;
+        private global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlTypeInfoProvider _provider = null;
 
-        private global::szd1.szd1_XamlTypeInfo.XamlTypeInfoProvider Provider
+        private global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlTypeInfoProvider Provider
         {
             get
             {
                 if (_provider == null)
                 {
-                    _provider = new global::szd1.szd1_XamlTypeInfo.XamlTypeInfoProvider();
+                    _provider = new global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlTypeInfoProvider();
                 }
                 return _provider;
             }
@@ -194,7 +194,7 @@ namespace szd1.szd1_XamlTypeInfo
             _typeNameTable[1] = "Object";
             _typeNameTable[2] = "szd1.Converters.CharArrayToGeometry";
             _typeNameTable[3] = "szd1.Converters.BoolToInverseVisibilityConverter";
-            _typeNameTable[4] = "szd1.MainPage";
+            _typeNameTable[4] = "szd1.GamePage";
             _typeNameTable[5] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[6] = "Windows.UI.Xaml.Controls.UserControl";
 
@@ -203,7 +203,7 @@ namespace szd1.szd1_XamlTypeInfo
             _typeTable[1] = typeof(global::System.Object);
             _typeTable[2] = typeof(global::szd1.Converters.CharArrayToGeometry);
             _typeTable[3] = typeof(global::szd1.Converters.BoolToInverseVisibilityConverter);
-            _typeTable[4] = typeof(global::szd1.MainPage);
+            _typeTable[4] = typeof(global::szd1.GamePage);
             _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[6] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
         }
@@ -243,12 +243,12 @@ namespace szd1.szd1_XamlTypeInfo
         private object Activate_0_BoolToVisibilityConverter() { return new global::szd1.Converters.BoolToVisibilityConverter(); }
         private object Activate_2_CharArrayToGeometry() { return new global::szd1.Converters.CharArrayToGeometry(); }
         private object Activate_3_BoolToInverseVisibilityConverter() { return new global::szd1.Converters.BoolToInverseVisibilityConverter(); }
-        private object Activate_4_MainPage() { return new global::szd1.MainPage(); }
+        private object Activate_4_GamePage() { return new global::szd1.GamePage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
-            global::szd1.szd1_XamlTypeInfo.XamlSystemBaseType xamlType = null;
-            global::szd1.szd1_XamlTypeInfo.XamlUserType userType;
+            global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlUserType userType;
             string typeName = _typeNameTable[typeIndex];
             global::System.Type type = _typeTable[typeIndex];
 
@@ -256,43 +256,43 @@ namespace szd1.szd1_XamlTypeInfo
             {
 
             case 0:   //  szd1.Converters.BoolToVisibilityConverter
-                userType = new global::szd1.szd1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType = new global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.Activator = Activate_0_BoolToVisibilityConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 1:   //  Object
-                xamlType = new global::szd1.szd1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 2:   //  szd1.Converters.CharArrayToGeometry
-                userType = new global::szd1.szd1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType = new global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.Activator = Activate_2_CharArrayToGeometry;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 3:   //  szd1.Converters.BoolToInverseVisibilityConverter
-                userType = new global::szd1.szd1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType = new global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.Activator = Activate_3_BoolToInverseVisibilityConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  szd1.MainPage
-                userType = new global::szd1.szd1_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_MainPage;
+            case 4:   //  szd1.GamePage
+                userType = new global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_GamePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 5:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::szd1.szd1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 6:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::szd1.szd1_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;
@@ -302,7 +302,7 @@ namespace szd1.szd1_XamlTypeInfo
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            global::szd1.szd1_XamlTypeInfo.XamlMember xamlMember = null;
+            global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlMember xamlMember = null;
             // No Local Properties
             return xamlMember;
         }
@@ -358,9 +358,9 @@ namespace szd1.szd1_XamlTypeInfo
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 10.0.17.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : global::szd1.szd1_XamlTypeInfo.XamlSystemBaseType
+    internal class XamlUserType : global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlSystemBaseType
     {
-        global::szd1.szd1_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlTypeInfoProvider _provider;
         global::Windows.UI.Xaml.Markup.IXamlType _baseType;
         bool _isArray;
         bool _isMarkupExtension;
@@ -374,7 +374,7 @@ namespace szd1.szd1_XamlTypeInfo
         global::System.Collections.Generic.Dictionary<string, string> _memberNames;
         global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(global::szd1.szd1_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
+        public XamlUserType(global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -571,7 +571,7 @@ namespace szd1.szd1_XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlMember : global::Windows.UI.Xaml.Markup.IXamlMember
     {
-        global::szd1.szd1_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -580,7 +580,7 @@ namespace szd1.szd1_XamlTypeInfo
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(global::szd1.szd1_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::szd1.SolvingAlgorithms_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;

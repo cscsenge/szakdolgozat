@@ -4,6 +4,7 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
   IgnorableNamespaces="uap mp">
 
   <Identity
@@ -14,7 +15,7 @@
   <mp:PhoneIdentity PhoneProductId="b07035b1-30d9-4a7c-81de-b16376ee8713" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>szd1</DisplayName>
+    <DisplayName>Examination of AI algorithms to solve gaming problems</DisplayName>
     <PublisherDisplayName>csend</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -32,10 +33,10 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="szd1.App">
       <uap:VisualElements
-        DisplayName="szd1"
+        DisplayName="Examination of AI algorithms to solve gaming problems"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="szd1"
+        Description="Examination of AI algorithms to solve gaming problems"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

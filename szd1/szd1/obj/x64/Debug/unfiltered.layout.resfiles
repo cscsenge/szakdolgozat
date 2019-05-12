@@ -16,6 +16,10 @@ Assets\StoreLogo.png
 Assets\wall.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
-MainPage.xbf
-szd1.xr.xml
+GamePage.xbf
+SolvingAlgorithms.xr.xml
+Levels\Fillomino\5x5.txt
+Levels\Fillomino\6x6.txt
+Levels\Fillomino\7x7.txt
+Levels\Fillomino\8x8.txt
 Properties\Default.rd.xml

@@ -1,0 +1,2 @@
+D:\Repos\szakdolgozat\szd1\Packaging\Packaging.wapproj;x64
+D:\Repos\szakdolgozat\szd1\szd1\SolvingAlgorithms.csproj;x64

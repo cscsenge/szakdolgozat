@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>6757BEEAF9B1FA7499CD5F66254C0BF3CE9E5599E00856258C19BFAE111D17D5</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>3DA5C80C3132BDABD20A2BB3A363C0A033B5C1CFB8C5D0BBA923BBE958B64FBA</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>b07035b1-30d9-4a7c-81de-b16376ee8713_1.0.0.0_x64__vw2e7bp5pxcky</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>b07035b1-30d9-4a7c-81de-b16376ee8713_vw2e7bp5pxcky!App</RegisteredUserModeAppID>
     <RegisteredPackageID>b07035b1-30d9-4a7c-81de-b16376ee8713</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-04-07T21:48:29.387</Modified>
+      <Modified>2019-05-12T18:52:18.266</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\szd1.exe">
-      <PackagePath>entrypoint\szd1.exe</PackagePath>
-      <Modified>2019-04-07T21:48:28.872</Modified>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\SolvingAlgorithms.exe">
+      <PackagePath>entrypoint\SolvingAlgorithms.exe</PackagePath>
+      <Modified>2019-05-12T18:52:16.499</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -524,7 +524,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\sokoban_pic.png">
       <PackagePath>Assets\sokoban_pic.png</PackagePath>
-      <Modified>2019-04-07T18:29:47.738</Modified>
+      <Modified>2019-05-06T14:55:52.182</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Assets\wall.png">
       <PackagePath>Assets\wall.png</PackagePath>
@@ -564,21 +564,37 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-01-12T21:13:34.106</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Levels\Fillomino\5x5.txt">
+      <PackagePath>Levels\Fillomino\5x5.txt</PackagePath>
+      <Modified>2019-03-16T17:55:19.459</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Levels\Fillomino\6x6.txt">
+      <PackagePath>Levels\Fillomino\6x6.txt</PackagePath>
+      <Modified>2019-02-24T11:30:09.601</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Levels\Fillomino\7x7.txt">
+      <PackagePath>Levels\Fillomino\7x7.txt</PackagePath>
+      <Modified>2019-02-24T11:48:44.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Levels\Fillomino\8x8.txt">
+      <PackagePath>Levels\Fillomino\8x8.txt</PackagePath>
+      <Modified>2019-05-05T20:45:14.681</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2019-01-12T21:13:34.125</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\szd1.xr.xml">
-      <PackagePath>szd1.xr.xml</PackagePath>
-      <Modified>2019-04-07T15:26:33.647</Modified>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\SolvingAlgorithms.xr.xml">
+      <PackagePath>SolvingAlgorithms.xr.xml</PackagePath>
+      <Modified>2019-05-12T18:17:59.312</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-04-07T21:48:28.602</Modified>
+      <Modified>2019-05-12T18:52:16.181</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\MainPage.xbf">
-      <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-04-07T21:48:28.602</Modified>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\GamePage.xbf">
+      <PackagePath>GamePage.xbf</PackagePath>
+      <Modified>2019-05-12T18:52:16.182</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -586,11 +602,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-04-07T21:46:02.733</Modified>
+      <Modified>2019-05-12T18:52:17.706</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\Core\szd1.exe">
-      <PackagePath>szd1.exe</PackagePath>
-      <Modified>2019-04-07T21:48:29.377</Modified>
+    <AppxPackagedFile Include="D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\Core\SolvingAlgorithms.exe">
+      <PackagePath>SolvingAlgorithms.exe</PackagePath>
+      <Modified>2019-05-12T18:52:18.257</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

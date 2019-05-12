@@ -27557,9 +27557,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repos\\szakdolgozat\\szd1\\szd1\\szd1.csproj",
-      "projectName": "szd1",
-      "projectPath": "D:\\Repos\\szakdolgozat\\szd1\\szd1\\szd1.csproj",
+      "projectUniqueName": "D:\\Repos\\szakdolgozat\\szd1\\szd1\\SolvingAlgorithms.csproj",
+      "projectName": "SolvingAlgorithms",
+      "projectPath": "D:\\Repos\\szakdolgozat\\szd1\\szd1\\SolvingAlgorithms.csproj",
       "packagesPath": "C:\\Users\\Csenge\\.nuget\\packages\\",
       "outputPath": "D:\\Repos\\szakdolgozat\\szd1\\szd1\\obj\\",
       "projectStyle": "PackageReference",

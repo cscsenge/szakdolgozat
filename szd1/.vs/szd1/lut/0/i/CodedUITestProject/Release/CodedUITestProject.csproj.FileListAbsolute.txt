@@ -1,0 +1,4 @@
+D:\Repos\szakdolgozat\szd1\.vs\szd1\lut\0\b\CodedUITestProject\bin\Release\CodedUITestProject.dll
+D:\Repos\szakdolgozat\szd1\.vs\szd1\lut\0\i\CodedUITestProject\Release\CodedUITestProject.csproj.CoreCompileInputs.cache
+D:\Repos\szakdolgozat\szd1\.vs\szd1\lut\0\i\CodedUITestProject\Release\CodedUITestProject.csproj.CopyComplete
+D:\Repos\szakdolgozat\szd1\.vs\szd1\lut\0\i\CodedUITestProject\Release\CodedUITestProject.dll

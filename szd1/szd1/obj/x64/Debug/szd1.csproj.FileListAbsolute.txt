@@ -1,5 +1,4 @@
 D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\App.xbf
-D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\MainPage.xbf
 D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\szd1.xr.xml
 D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\szd1.exe
 D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\szd1.pdb
@@ -124,13 +123,9 @@ D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\System.Xml.XmlDocument.dll
 D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\System.Xml.XmlSerializer.dll
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\App.g.i.cs
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\App.g.cs
-D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\MainPage.g.i.cs
-D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\MainPage.g.cs
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\XamlTypeInfo.g.cs
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\App.xaml
-D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\MainPage.xaml
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\App.xbf
-D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\MainPage.xbf
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\XamlSaveStateFile.xml
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\szd1.csproj.CoreCompileInputs.cache
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\szd1.csproj.CopyComplete
@@ -215,3 +210,9 @@ D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\qualifiers.txt
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\qualifiers.txt.intermediate
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\ProjectArchitectures.txt
+D:\Repos\szakdolgozat\szd1\szd1\bin\x64\Debug\GamePage.xbf
+D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\GamePage.g.i.cs
+D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\GamePage.g.cs
+D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\GamePage.xaml
+D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\GamePage.xbf
+D:\Repos\szakdolgozat\szd1\szd1\obj\x64\Debug\szd1.csprojAssemblyReference.cache
